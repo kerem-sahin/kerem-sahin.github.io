@@ -1,0 +1,238 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Kerem Şahin</title>
+<meta name="description" content="University student. I build iOS apps alongside school.">
+<meta property="og:title" content="Kerem Şahin">
+<meta property="og:description" content="University student. I build iOS apps alongside school.">
+<link rel="icon" href="assets/favicon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=Geist:wght@400;500;600&family=Geist+Mono:wght@400;500;600&family=Bricolage+Grotesque:opsz,wght@12..96,700;12..96,800&family=DM+Serif+Display:ital@0;1&family=Chakra+Petch:wght@500;700&display=swap">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div class="progress" aria-hidden="true"><i id="progress"></i></div>
+<nav class="nav">
+  <a href="#top">Kerem Şahin</a>
+  <span class="now" id="now" aria-hidden="true"></span>
+  <button class="lang" id="lang" type="button" aria-label="Türkçe'ye geç">TR</button>
+</nav>
+
+<header class="band intro" id="top">
+    <div class="fade" aria-hidden="true" style="--to: #4A0F1F"></div>
+  <div class="intro-copy">
+    <h1>Kerem<br>Şahin</h1>
+    <p class="lead" data-tr="Üniversite öğrencisiyim. Okulun yanında iOS uygulamaları yapıyorum.">University student. I build iOS apps alongside school.</p>
+    <ul class="counts">
+      <li><i class="dot live"></i><span data-tr="2 uygulama App Store'da">2 apps on the App Store</span></li>
+      <li><i class="dot review"></i><span data-tr="2 uygulama onayda">2 in App Store review</span></li>
+      <li><i class="dot dev"></i><span data-tr="1 uygulama yapım aşamasında">1 in development</span></li>
+      <li><i class="dot oss"></i><span data-tr="1 açık kaynak paket">1 open-source package</span></li>
+    </ul>
+    <p class="cue" data-tr="↓ Aşağı kaydır, her uygulamanın kendi afişi var">↓ Scroll down. Every app gets its own poster.</p>
+  </div>
+  <img class="kid" src="assets/kerem.png" alt="Pixel-art Kerem, hands in pockets" width="384" height="1234">
+</header>
+
+<main>
+  <!-- here. -->
+  <section class="band poster p-here" id="here">
+    <div class="fade" aria-hidden="true" style="--to: #FFF3D6"></div>
+    <div class="copy">
+      <img class="icon" src="assets/here.png" alt="" width="72" height="72">
+      <h2>here<span>.</span></h2>
+      <span class="tag" data-tr="App Store'da">On the App Store</span>
+      <p class="say" data-tr="Aynı mekândaki insanları anında gör ve tanış.">See who's at the same venue right now and meet them.</p>
+      <p data-tr="AVM ve kampüsler için çokgen konum sınırlarıyla çalışıyor. Konya'da gerçek mekânlarda test edildi.">It draws polygon boundaries around malls and campuses, and it was tested in real venues in Konya.</p>
+      <p class="stack">React · Capacitor · Firebase</p>
+      <a class="cta" href="https://apps.apple.com/tr/app/here/id6767262061" data-tr="App Store'dan indir ↗">Get it on the App Store ↗</a>
+    </div>
+    <div class="shots">
+      <img src="assets/shots/here-1.jpg" alt="here. venue list" loading="lazy">
+      <img src="assets/shots/here-2.jpg" alt="here. people at a venue" loading="lazy">
+      <img src="assets/shots/here-3.jpg" alt="here. screen" loading="lazy">
+    </div>
+    <div class="marquee-wrap" aria-hidden="true">
+      <div class="marquee-track">
+        <span data-tr="MEKÂN KEŞFİ">VENUE DISCOVERY</span><span class="msep">·</span><span data-tr="KİMLER BURADA">WHO'S HERE</span><span class="msep">·</span><span>KONYA</span><span class="msep">·</span><span data-tr="ANLIK">REAL TIME</span><span class="msep">·</span><span data-tr="ÇOKGEN KONUM SINIRI">POLYGON GEOFENCING</span><span class="msep">·</span><span>FIREBASE</span><span class="msep">·</span><span>REACT</span><span class="msep">·</span><span>CAPACITOR</span><span class="msep">·</span>
+        <span data-tr="MEKÂN KEŞFİ">VENUE DISCOVERY</span><span class="msep">·</span><span data-tr="KİMLER BURADA">WHO'S HERE</span><span class="msep">·</span><span>KONYA</span><span class="msep">·</span><span data-tr="ANLIK">REAL TIME</span><span class="msep">·</span><span data-tr="ÇOKGEN KONUM SINIRI">POLYGON GEOFENCING</span><span class="msep">·</span><span>FIREBASE</span><span class="msep">·</span><span>REACT</span><span class="msep">·</span><span>CAPACITOR</span><span class="msep">·</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- notecook -->
+  <section class="band poster p-note" id="notecook">
+    <div class="fade" aria-hidden="true" style="--to: #FAFAF7"></div>
+    <div class="shots">
+      <img src="assets/shots/notecook-1.jpg" alt="notecook library" loading="lazy">
+      <img src="assets/shots/notecook-2.jpg" alt="notecook writing with Apple Pencil" loading="lazy">
+    </div>
+    <div class="copy">
+      <img class="icon" src="assets/notecook.png" alt="" width="72" height="72">
+      <h2>notecook</h2>
+      <span class="tag" data-tr="App Store'da">On the App Store</span>
+      <p class="say" data-tr="iPad ve Apple Pencil için el yazısı defteri.">A handwriting notebook for iPad and Apple Pencil.</p>
+      <p data-tr="El yazında arama yapabiliyorsun, PDF'lerin üzerine not alabiliyorsun. Defterler iCloud ile tüm cihazlarında.">Your handwriting becomes searchable, you can write on top of PDFs, and your notebooks sync over iCloud.</p>
+      <p class="stack">SwiftUI · PencilKit · Vision · SwiftData + CloudKit</p>
+      <a class="cta" href="https://apps.apple.com/tr/app/notecook/id6811676558" data-tr="App Store'dan indir ↗">Get it on the App Store ↗</a>
+    </div>
+  </section>
+
+  <!-- plainday -->
+  <section class="band poster p-plain" id="plainday">
+    <div class="fade" aria-hidden="true" style="--to: #1B1410"></div>
+    <div class="copy">
+      <img class="icon" src="assets/plainday.png" alt="" width="72" height="72">
+      <h2>plainday</h2>
+      <span class="tag" data-tr="App Store onayında">In App Store review</span>
+      <p class="say" data-tr="Düz Türkçe ve İngilizce cümleleri anlayan gün planlayıcı.">A day planner that understands plain Turkish and English sentences.</p>
+      <p data-tr="Bir cümle yaz, görev olsun. Widget, alarm ve Siri desteği var.">Write one sentence and it becomes a task. Widgets, alarms and Siri.</p>
+      <p class="stack">SwiftUI · SwiftData · AlarmKit · WidgetKit · App Intents</p>
+    </div>
+    <div class="blocks" aria-label="Example sentences and what plainday makes of them">
+      <div class="b1"><q>Cuma fizyoloji ödevi 18:00</q><small data-tr="Fizyoloji ödevi · Cuma · 18:00">Fizyoloji ödevi · Fri · 18:00</small></div>
+      <div class="b2"><q>yarın annemi ara 18:00</q><small data-tr="Annemi ara · Yarın · 18:00">Annemi ara · Tomorrow · 18:00</small></div>
+      <div class="b3"><q>hafta içi her gün spor</q><small data-tr="Spor · Pzt–Cum">Spor · Mon–Fri</small></div>
+      <div class="b4"><q>her sabah 7de alarm vitamin</q><small data-tr="Vitamin · Her gün · 07:00 · alarm">Vitamin · Daily · 07:00 · alarm</small></div>
+      <div class="b5"><q>friday math homework 6pm</q><small data-tr="Math homework · Cuma · 18:00">Math homework · Fri · 18:00</small></div>
+      <div class="b6"><q>buy milk</q><small data-tr="Buy milk · zamansız">Buy milk · anytime</small></div>
+    </div>
+  </section>
+
+  <!-- SweetSpot -->
+  <section class="band poster p-sweet" id="sweetspot">
+    <div class="fade" aria-hidden="true" style="--to: #061719"></div>
+    <div class="sun" aria-hidden="true"></div>
+    <div class="shots">
+      <img src="assets/shots/sweetspot-1.jpg" alt="SweetSpot map" loading="lazy">
+      <img src="assets/shots/sweetspot-2.jpg" alt="SweetSpot place" loading="lazy">
+    </div>
+    <div class="copy">
+      <img class="icon" src="assets/sweetspot.png" alt="" width="72" height="72">
+      <h2 aria-label="SweetSpot: Saklı Yerler">SweetSpot</h2>
+      <p class="sub">Saklı Yerler</p>
+      <span class="tag" data-tr="App Store onayında">In App Store review</span>
+      <p class="say" data-tr="Sakin, az bilinen yerlerin haritası.">A map of quiet, little-known places.</p>
+      <p data-tr="Her yerin fotoğrafı yerinde çekiliyor, yeni paylaşımlar yayına girmeden denetleniyor.">Every place is photographed on the spot, and new posts are moderated before they go live.</p>
+      <p class="stack">SwiftUI · MapKit · Firebase · Cloud Functions</p>
+    </div>
+  </section>
+
+  <!-- Fiziyoo -->
+  <section class="band poster p-fizi" id="fiziyoo">
+    <div class="fade" aria-hidden="true" style="--to: #111111"></div>
+    <div class="copy">
+      <img class="icon" src="assets/fiziyoo.png" alt="" width="72" height="72">
+      <h2>Fiziyoo</h2>
+      <span class="tag" data-tr="Yapım aşamasında">In development</span>
+      <p class="say" data-tr="Fizyoterapistler için klinik uygulaması.">A clinic app for physiotherapists.</p>
+      <p data-tr="Fotoğraftan postür analizi yapıyor ve her ölçümü hata payıyla birlikte gösteriyor.">It analyses posture from a photo and shows every measurement alongside its error band.</p>
+      <p class="stack">SwiftUI · SwiftData + CloudKit · Vision · Swift Charts</p>
+    </div>
+    <div class="pose-wrap">
+      <svg class="pose" viewBox="0 0 420 520" role="img" aria-label="Illustration of a posture analysis: body landmarks, shoulder and pelvic tilt with error bands">
+        <defs><pattern id="pgrid" width="20" height="20" patternUnits="userSpaceOnUse"><path d="M20 0H0V20" fill="none" stroke="#3FE6D6" stroke-opacity=".08"/></pattern><linearGradient id="pscan" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#3FE6D6" stop-opacity="0"/><stop offset="1" stop-color="#3FE6D6" stop-opacity=".35"/></linearGradient></defs>
+        <rect class="pose-frame" x="1" y="1" width="418" height="518" rx="18" fill="url(#pgrid)" stroke="#3FE6D6" stroke-opacity=".25"/>
+        <line class="pose-plumb" x1="211" y1="28" x2="211" y2="500" stroke="#CFF7F2" stroke-opacity=".35" stroke-dasharray="4 6"/>
+        <ellipse class="pose-head" cx="211.0" cy="74" rx="26" ry="31" fill="none" stroke="#3FE6D6" stroke-opacity=".35" stroke-width="1.5"/>
+        <g class="pose-bones" fill="none" stroke="#3FE6D6" stroke-width="2.5" stroke-linecap="round">
+          <line x1="194" y1="70" x2="228" y2="72"/>
+          <line x1="211" y1="118" x2="158" y2="130"/>
+          <line x1="211" y1="118" x2="264" y2="138"/>
+          <line x1="158" y1="130" x2="142" y2="214"/>
+          <line x1="142" y1="214" x2="134" y2="294"/>
+          <line x1="264" y1="138" x2="280" y2="222"/>
+          <line x1="280" y1="222" x2="288" y2="300"/>
+          <line x1="158" y1="130" x2="182" y2="282"/>
+          <line x1="264" y1="138" x2="242" y2="286"/>
+          <line x1="182" y1="282" x2="242" y2="286"/>
+          <line x1="182" y1="282" x2="180" y2="386"/>
+          <line x1="180" y1="386" x2="178" y2="480"/>
+          <line x1="242" y1="286" x2="244" y2="389"/>
+          <line x1="244" y1="389" x2="246" y2="482"/>
+          <line x1="211" y1="80" x2="211" y2="118"/>
+        </g>
+        <line class="pose-ref" x1="124" y1="130" x2="304" y2="130" stroke="#CFF7F2" stroke-opacity=".45" stroke-dasharray="3 5"/>
+        <line class="pose-ref" x1="152" y1="282" x2="276" y2="282" stroke="#CFF7F2" stroke-opacity=".45" stroke-dasharray="3 5"/>
+        <polygon class="pose-band" points="211.0,134.0 292.6,141.9 292.9,138.5 211.0,134.0 129.4,126.1 129.1,129.5" fill="#FFB547" fill-opacity=".28" stroke="#FFB547" stroke-opacity=".7" stroke-width="1"/>
+        <polygon class="pose-band" points="212.0,284.0 269.8,289.4 270.0,286.3 212.0,284.0 154.2,278.6 154.0,281.7" fill="#FFB547" fill-opacity=".28" stroke="#FFB547" stroke-opacity=".7" stroke-width="1"/>
+        <g class="pose-joints" fill="#061719" stroke="#3FE6D6" stroke-width="2.5">
+          <circle cx="194" cy="70" r="4.5"/>
+          <circle cx="228" cy="72" r="4.5"/>
+          <circle cx="211" cy="80" r="4.5"/>
+          <circle cx="211" cy="118" r="6.5"/>
+          <circle cx="158" cy="130" r="6.5"/>
+          <circle cx="264" cy="138" r="6.5"/>
+          <circle cx="142" cy="214" r="6.5"/>
+          <circle cx="280" cy="222" r="6.5"/>
+          <circle cx="134" cy="294" r="6.5"/>
+          <circle cx="288" cy="300" r="6.5"/>
+          <circle cx="182" cy="282" r="6.5"/>
+          <circle cx="242" cy="286" r="6.5"/>
+          <circle cx="180" cy="386" r="6.5"/>
+          <circle cx="244" cy="389" r="6.5"/>
+          <circle cx="178" cy="480" r="6.5"/>
+          <circle cx="246" cy="482" r="6.5"/>
+        </g>
+        <g class="pose-label" transform="translate(310 114)"><text class="pl-k" data-tr="Omuz eğimi">Shoulder tilt</text><text class="pl-v" y="22">4.3° ± 1.2°</text></g>
+        <g class="pose-label" transform="translate(128 312)" text-anchor="end"><text class="pl-k" data-tr="Leğen eğimi">Pelvic tilt</text><text class="pl-v" y="22">3.8° ± 1.5°</text></g>
+        <rect class="pose-scan" x="1" y="0" width="418" height="70" fill="url(#pscan)"/>
+        <text class="pose-note" x="20" y="504" data-tr="Örnek ölçüm · illüstrasyon">Sample reading · illustration</text>
+      </svg>
+    </div>
+  </section>
+
+  <!-- PlainParse -->
+  <section class="band poster p-pp" id="plainparse">
+    <div class="fade" aria-hidden="true" style="--to: #F1F0EC"></div>
+    <div class="copy">
+      <h2>PlainParse</h2>
+      <span class="tag" data-tr="Açık kaynak · MIT">Open source · MIT</span>
+      <p class="say" data-tr="Tek bir düz cümleyi göreve çeviren Swift paketi.">A Swift package that turns one plain sentence into a task.</p>
+      <p data-tr="plainday'in hızlı ekleme çubuğu bununla çalışıyor. Bağımlılık yok, internet yok, 150 test.">It runs plainday's quick-add bar. No dependencies, no network, 150 tests.</p>
+      <a class="cta" href="https://github.com/kerem-sahin/plainparse" data-tr="GitHub'da kod ↗">Code on GitHub ↗</a>
+    </div>
+<div class="terminal">
+  <div class="terminal-bar" aria-hidden="true">
+    <span class="tb-dot"></span><span class="tb-dot"></span><span class="tb-dot"></span>
+    <span class="tb-name">PlainParse.swift</span>
+  </div>
+  <pre class="code"><span class="k">let</span> entry = parser.parse(<span class="s">"Cuma fizyoloji ödevi 18:00"</span>)
+
+entry.title    <span class="c">// "Fizyoloji ödevi"</span>
+entry.day      <span class="c">// next Friday</span>
+entry.minute   <span class="c">// 1080, i.e. 18:00</span></pre>
+</div>
+  </section>
+
+  <!-- How I work -->
+  <section class="band how">
+    <div class="fade" aria-hidden="true" style="--to: #111111"></div>
+    <h2 data-tr="Nasıl çalışıyorum">How I work</h2>
+    <p data-tr="Yapay zekâyı sihirli bir kutu gibi değil, yönettiğim bir ekip gibi kullanıyorum. Commit'lerimde Claude'un ortak yazar olarak görünmesi bilinçli. Kendi kural ve beceri kütüphanemi tutuyorum; her proje bir öncekinden öğrendiklerimle başlıyor.">I treat AI as a team I direct, not a magic box. Claude shows up as co-author on my commits, on purpose. I keep my own library of rules and skills, so every project starts from what the last one taught me.</p>
+    <ul class="how-chips" aria-hidden="true">
+      <li>SwiftUI</li><li>SwiftData + CloudKit</li><li>Vision</li><li>Firebase</li><li>React</li><li>MapKit</li><li>Claude Code</li>
+    </ul>
+    <div class="contact">
+      <h3 data-tr="İletişim">Get in touch</h3>
+      <a class="mail" href="mailto:subatcontact@gmail.com">subatcontact@gmail.com</a>
+    </div>
+  </section>
+</main>
+
+<footer class="foot">
+  <span>© 2026 Kerem Şahin</span>
+  <span class="links"><a href="mailto:subatcontact@gmail.com" data-tr="E-posta">Email</a><a href="https://github.com/kerem-sahin">GitHub ↗</a><a href="https://apps.apple.com/tr/developer/id1896448188">App Store ↗</a></span>
+</footer>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+<script src="https://unpkg.com/lenis@1.1.13/dist/lenis.min.js"></script>
+<script src="app.js"></script>
+<script src="motion.js"></script>
+</body>
+</html>

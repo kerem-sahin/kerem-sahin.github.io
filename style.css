@@ -143,9 +143,16 @@ a { color: inherit; }
   .p-note .shots img { height: 300px; }
   .p-here .shots img:nth-child(3) { display: none; }
   .p-here .shots img { max-width: 46%; }
-  .intro { grid-template-columns: 1fr; padding-top: 90px; }
-  .intro-copy { padding-bottom: 0; }
-  .kid { height: 54vh; justify-self: center; margin: 0; }
+  /* Phone intro: name and line on top, the counts sit beside Kerem, who stands on the section edge. */
+  .intro { min-height: 0; padding-top: 96px; grid-template-columns: minmax(0, 1fr) auto; grid-template-areas: "h1 h1" "lead lead" "counts kid"; column-gap: 12px; row-gap: 22px; align-items: start; }
+  .intro-copy { display: contents; }
+  .intro h1 { grid-area: h1; }
+  .intro .lead { grid-area: lead; }
+  .counts { grid-area: counts; flex-direction: column; align-items: flex-start; }
+  .counts li { font-size: 12px; padding: 8px 10px; }
+  .cue { display: none; }
+  .kid { grid-area: kid; height: min(320px, 42svh); align-self: end; justify-self: end; margin: 0; }
+  .intro .fade { height: 70px; }
 }
 @media (max-width: 560px) { .now { display: none; } }
 

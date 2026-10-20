@@ -67,9 +67,12 @@
     .from(".cue", { opacity: 0, duration: 0.6 }, "-=0.3")
     .from(".kid", { yPercent: 30, opacity: 0, duration: 1.3, ease: "expo.out" }, 0.25);
   gsap.to(".cue", { y: 6, repeat: -1, yoyo: true, duration: 0.9, ease: "sine.inOut", delay: 2 });
-  const leaveIntro = { trigger: ".intro", start: "top top", end: "bottom top", scrub: true };
-  gsap.to(".intro-copy", { yPercent: -30, opacity: 0.2, ease: "none", scrollTrigger: leaveIntro });
-  gsap.to(".kid", { y: 140, ease: "none", scrollTrigger: leaveIntro });
+  // The intro parallax is for wide screens only: on a phone Kerem would sink into the next poster.
+  gsap.matchMedia().add("(min-width: 861px)", () => {
+    const leaveIntro = { trigger: ".intro", start: "top top", end: "bottom top", scrub: true };
+    gsap.to(".intro-copy", { yPercent: -30, opacity: 0.2, ease: "none", scrollTrigger: leaveIntro });
+    gsap.to(".kid", { y: 140, ease: "none", scrollTrigger: leaveIntro });
+  });
 
   /* Every poster: icon pops, title sets letter by letter, the copy follows. */
   document.querySelectorAll(".poster").forEach(sec => {

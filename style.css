@@ -112,7 +112,8 @@ a { color: inherit; }
 .p-fizi h2 { margin: 0; font: 700 clamp(56px, 8.5vw, 120px)/.9 "Chakra Petch", sans-serif; letter-spacing: .04em; text-transform: uppercase; color: #3FE6D6; text-shadow: 0 0 32px rgba(63, 230, 214, .45); }
 .p-fizi .tag { border: 1px solid #3FE6D6; color: #3FE6D6; font-family: "Chakra Petch", sans-serif; }
 .pose-wrap { justify-self: center; width: min(440px, 100%); position: relative; z-index: 1; }
-.pose { display: block; width: 100%; height: auto; overflow: visible; filter: drop-shadow(0 0 30px rgba(63, 230, 214, .12)); }
+.pose { display: block; width: 100%; height: auto; overflow: visible; }
+.pose-wrap { border-radius: 19px; box-shadow: 0 0 40px rgba(63, 230, 214, .1); }
 .pose-label .pl-k { font: 500 11px var(--mono); letter-spacing: .08em; text-transform: uppercase; fill: #CFF7F2; fill-opacity: .7; }
 .pose-label .pl-v { font: 700 20px "Chakra Petch", sans-serif; fill: #FFB547; }
 .pose-note { font: 500 10.5px var(--mono); letter-spacing: .06em; text-transform: uppercase; fill: #CFF7F2; fill-opacity: .45; }

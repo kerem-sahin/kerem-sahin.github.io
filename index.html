@@ -136,7 +136,7 @@
     </div>
     <div class="pose-wrap">
       <svg class="pose" viewBox="0 0 420 520" role="img" aria-label="Illustration of a posture analysis: body landmarks, shoulder and pelvic tilt with error bands">
-        <defs><pattern id="pgrid" width="20" height="20" patternUnits="userSpaceOnUse"><path d="M20 0H0V20" fill="none" stroke="#3FE6D6" stroke-opacity=".08"/></pattern><linearGradient id="pscan" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#3FE6D6" stop-opacity="0"/><stop offset="1" stop-color="#3FE6D6" stop-opacity=".35"/></linearGradient></defs>
+        <defs><pattern id="pgrid" width="20" height="20" patternUnits="userSpaceOnUse"><path d="M20 0H0V20" fill="none" stroke="#3FE6D6" stroke-opacity=".08"/></pattern><linearGradient id="pscan" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#3FE6D6" stop-opacity="0"/><stop offset="1" stop-color="#3FE6D6" stop-opacity=".35"/></linearGradient><clipPath id="pclip"><rect x="1" y="1" width="418" height="518" rx="18"/></clipPath></defs>
         <rect class="pose-frame" x="1" y="1" width="418" height="518" rx="18" fill="url(#pgrid)" stroke="#3FE6D6" stroke-opacity=".25"/>
         <line class="pose-plumb" x1="211" y1="28" x2="211" y2="500" stroke="#CFF7F2" stroke-opacity=".35" stroke-dasharray="4 6"/>
         <ellipse class="pose-head" cx="211.0" cy="74" rx="26" ry="31" fill="none" stroke="#3FE6D6" stroke-opacity=".35" stroke-width="1.5"/>
@@ -181,7 +181,7 @@
         </g>
         <g class="pose-label" transform="translate(310 114)"><text class="pl-k" data-tr="Omuz eğimi">Shoulder tilt</text><text class="pl-v" y="22">4.3° ± 1.2°</text></g>
         <g class="pose-label" transform="translate(128 312)" text-anchor="end"><text class="pl-k" data-tr="Leğen eğimi">Pelvic tilt</text><text class="pl-v" y="22">3.8° ± 1.5°</text></g>
-        <rect class="pose-scan" x="1" y="0" width="418" height="70" fill="url(#pscan)"/>
+        <g clip-path="url(#pclip)"><rect class="pose-scan" x="1" y="-70" width="418" height="70" fill="url(#pscan)"/></g>
         <text class="pose-note" x="20" y="504" data-tr="Örnek ölçüm · illüstrasyon">Sample reading · illustration</text>
       </svg>
     </div>

@@ -103,6 +103,7 @@ a { color: inherit; }
 .p-sweet::after { content: ""; position: absolute; left: 0; right: 0; bottom: 0; height: 220px; background: repeating-linear-gradient(180deg, transparent 0 18px, #1B1410 18px 25px); opacity: .55; }
 .p-sweet h2 { margin: 0; font: italic 400 clamp(50px, 8.2vw, 120px)/.95 "DM Serif Display", Georgia, serif; letter-spacing: -.02em; white-space: nowrap; }
 .p-sweet .sub { margin-top: -6px; font: italic 400 clamp(28px, 3.4vw, 46px)/1 "DM Serif Display", Georgia, serif; color: #F4B25C; }
+.p-sweet .cta { color: #F4B25C; }
 .p-sweet .tag { border: 1px solid #F4B25C; color: #F4B25C; border-radius: 99px; }
 .p-sweet .shots img { border-radius: 24px; box-shadow: 0 24px 60px rgba(0, 0, 0, .5); }
 .p-sweet .shots img:nth-child(2) { transform: translateY(-40px); }

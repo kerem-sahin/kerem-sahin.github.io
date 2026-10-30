@@ -1,7 +1,7 @@
 /* Poster wall: one full-width poster per app, each in that app's own colours and type. */
 :root {
   --paper: #F1F0EC; --ink: #111111;
-  --live: #34C759; --review: #FF9F0A; --dev: #A7AEB6; --oss: #64D2FF;
+  --live: #34C759; --review: #FF9F0A; --web: #A5392D; --dev: #A7AEB6; --oss: #64D2FF;
   --sans: "Geist", system-ui, -apple-system, sans-serif;
   --mono: "Geist Mono", ui-monospace, Menlo, monospace;
   --block: "Archivo Black", "Arial Black", sans-serif;
@@ -60,7 +60,7 @@ a { color: inherit; }
 .counts { list-style: none; margin: 0; padding: 0; display: flex; flex-wrap: wrap; gap: 8px; }
 .counts li { display: inline-flex; align-items: center; gap: 8px; font: 500 13px/1 var(--mono); padding: 9px 12px; border: 1.5px solid var(--ink); border-radius: 99px; }
 .dot { width: 9px; height: 9px; border-radius: 50%; display: inline-block; }
-.dot.live { background: var(--live); } .dot.review { background: var(--review); } .dot.dev { background: var(--dev); } .dot.oss { background: var(--oss); }
+.dot.live { background: var(--live); } .dot.review { background: var(--review); } .dot.web { background: var(--web); } .dot.dev { background: var(--dev); } .dot.oss { background: var(--oss); }
 .cue { margin: 0; font: 500 13px/1.4 var(--mono); opacity: .65; }
 .kid { height: min(82vh, 760px); width: auto; image-rendering: pixelated; align-self: end; margin-right: clamp(0px, 4vw, 60px); }
 
@@ -119,6 +119,22 @@ a { color: inherit; }
 .pose-label .pl-v { font: 700 20px "Chakra Petch", sans-serif; fill: #FFB547; }
 .pose-note { font: 500 10.5px var(--mono); letter-spacing: .06em; text-transform: uppercase; fill: #CFF7F2; fill-opacity: .45; }
 
+/* 85 Milyonda 1: wool paper, ink and madder red, a kilim strip, and the population count behind it all. */
+.p-85 { background: #F7F1E5; color: #1C2740; }
+.p-85 h2 { margin: 0; font: 600 clamp(52px, 7.6vw, 108px)/.95 "Fraunces", Georgia, serif; letter-spacing: -.025em; white-space: nowrap; }
+.p-85 h2 em { font-style: normal; color: #A5392D; }
+.p-85 .icon { border-radius: 17px; }
+.p-85 .kilim { width: min(240px, 60%); height: auto; display: block; }
+.p-85 .tag { color: #A5392D; border: 2px solid #A5392D; border-radius: 6px; transform: rotate(-3deg); letter-spacing: .14em; }
+.p-85 .say { font-family: "Fraunces", Georgia, serif; font-weight: 500; }
+.p-85 .cta { color: #A5392D; }
+.p-85 .pop { font: 500 13px/1 var(--mono); letter-spacing: .04em; color: #4F5A72; margin-bottom: -6px; }
+.p-85 .pop b { color: #A5392D; font-weight: 600; font-variant-numeric: tabular-nums; }
+.p-85 .shots { gap: 0; }
+.p-85 .shots img { height: auto; width: 58%; max-width: 400px; border-radius: 14px; box-shadow: 0 2px 0 #DDD1B8, 0 28px 50px rgba(28, 39, 64, .18); }
+.p-85 .shots img:nth-child(1) { transform: rotate(-4deg) translateX(12%); z-index: 2; }
+.p-85 .shots img:nth-child(2) { transform: rotate(5deg) translateX(-12%) translateY(40px); z-index: 1; }
+
 /* PlainParse */
 .p-pp { background: #111; color: #EDEDED; }
 .p-pp h2 { margin: 0; font: 600 clamp(44px, 6vw, 80px)/1 var(--mono); letter-spacing: -.04em; }
@@ -150,6 +166,8 @@ a { color: inherit; }
   .p-note .shots img:nth-child(1) { transform: rotate(-3deg) translateX(6%); }
   .p-here .shots img:nth-child(3) { display: none; }
   .p-here .shots img { max-width: 46%; }
+  .p-85 { padding-bottom: 170px; }
+  .p-85 .shots img { height: auto; width: 54%; max-width: 54%; }
   /* Phone intro: name and line on top, the counts sit beside Kerem, who stands on the section edge. */
   .intro { min-height: 0; padding-top: 96px; grid-template-columns: minmax(0, 1fr) auto; grid-template-areas: "h1 h1" "lead lead" "counts kid"; column-gap: 12px; row-gap: 22px; align-items: start; }
   .intro-copy { display: contents; }

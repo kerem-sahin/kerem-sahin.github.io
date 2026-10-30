@@ -7,7 +7,7 @@
 
   /* Progress bar and the current poster's name in the nav. These are information, so they run even with reduced motion. */
   const bar = document.getElementById("progress"), now = document.getElementById("now");
-  const NAMES = { here: "here.", notecook: "notecook", plainday: "plainday", sweetspot: "SweetSpot", fiziyoo: "Fiziyoo", plainparse: "PlainParse" };
+  const NAMES = { here: "here.", notecook: "notecook", plainday: "plainday", sweetspot: "SweetSpot", fiziyoo: "Fiziyoo", milyonda: "85 Milyonda 1", plainparse: "PlainParse" };
   ScrollTrigger.create({ start: 0, end: "max", onUpdate: s => gsap.set(bar, { scaleX: s.progress }) });
   Object.entries(NAMES).forEach(([id, name]) => ScrollTrigger.create({
     trigger: "#" + id, start: "top 50%", end: "bottom 50%",
@@ -124,6 +124,17 @@
     .from(".pose-band", { scale: 0.2, opacity: 0, transformOrigin: "50% 50%", duration: 0.7, stagger: 0.2, ease: "power3.out" }, "<")
     .from(".pose-label", { opacity: 0, x: 12, duration: 0.5, stagger: 0.2 }, "<0.3")
     .from(".pose-note", { opacity: 0, duration: 0.4 });
+
+  /* 85 Milyonda 1: the population counts up, the summary cards land like stamped papers. */
+  const pop = document.querySelector(".pop-n"), people = { n: 0 };
+  gsap.to(people, { n: 86092168, ease: "power1.out", onUpdate: () => { pop.textContent = Math.round(people.n).toLocaleString(document.documentElement.lang === "tr" ? "tr-TR" : "en-US"); },
+    scrollTrigger: { trigger: "#milyonda", start: "top 85%", end: "center center", scrub: true } });
+  gsap.from(".p-85 .shots img", { y: 120, rotate: i => (i ? 18 : -14), opacity: 0, duration: 0.9, stagger: 0.18, ease: "power3.out",
+    scrollTrigger: { trigger: "#milyonda", start: "top 60%", ...replay } });
+  gsap.from(".p-85 .tag", { scale: 2.4, rotate: -18, duration: 0.45, ease: "back.out(2.5)", delay: 0.5,
+    scrollTrigger: { trigger: "#milyonda", start: "top 60%", ...replay } });
+  gsap.from(".p-85 .kilim", { clipPath: "inset(0 100% 0 0)", duration: 0.9, ease: "power2.inOut", delay: 0.3,
+    scrollTrigger: { trigger: "#milyonda", start: "top 60%", ...replay } });
 
   /* PlainParse: the code arrives line by line. */
   const code = document.querySelector(".code");

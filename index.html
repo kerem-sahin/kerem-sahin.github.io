@@ -4,13 +4,13 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>Kerem Şahin</title>
-<meta name="description" content="University student. I build iOS apps alongside school.">
+<meta name="description" content="University student. I build iOS apps and web projects alongside school.">
 <meta property="og:title" content="Kerem Şahin">
-<meta property="og:description" content="University student. I build iOS apps alongside school.">
+<meta property="og:description" content="University student. I build iOS apps and web projects alongside school.">
 <link rel="icon" href="assets/favicon.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=Geist:wght@400;500;600&family=Geist+Mono:wght@400;500;600&family=Bricolage+Grotesque:opsz,wght@12..96,700;12..96,800&family=DM+Serif+Display:ital@0;1&family=Chakra+Petch:wght@500;700&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=Geist:wght@400;500;600&family=Geist+Mono:wght@400;500;600&family=Bricolage+Grotesque:opsz,wght@12..96,700;12..96,800&family=DM+Serif+Display:ital@0;1&family=Fraunces:opsz,wght@9..144,500;9..144,600&family=Chakra+Petch:wght@500;700&display=swap">
 <link rel="stylesheet" href="style.css">
 </head>
 <body>
@@ -26,13 +26,14 @@
     <div class="fade" aria-hidden="true" style="--to: #4A0F1F"></div>
   <div class="intro-copy">
     <h1>Kerem<br>Şahin</h1>
-    <p class="lead" data-tr="Üniversite öğrencisiyim. Okulun yanında iOS uygulamaları yapıyorum.">University student. I build iOS apps alongside school.</p>
+    <p class="lead" data-tr="Üniversite öğrencisiyim. Okulun yanında iOS uygulamaları ve web projeleri yapıyorum.">University student. I build iOS apps and web projects alongside school.</p>
     <ul class="counts">
       <li><i class="dot live"></i><span data-tr="4 uygulama App Store'da">4 apps on the App Store</span></li>
+      <li><i class="dot web"></i><span data-tr="1 web projesi yayında">1 web project live</span></li>
       <li><i class="dot dev"></i><span data-tr="1 uygulama yapımda">1 in development</span></li>
       <li><i class="dot oss"></i><span data-tr="1 açık kaynak paket">1 open-source package</span></li>
     </ul>
-    <p class="cue" data-tr="↓ Aşağı kaydır, her uygulamanın kendi afişi var">↓ Scroll down. Every app gets its own poster.</p>
+    <p class="cue" data-tr="↓ Aşağı kaydır, her projenin kendi afişi var">↓ Scroll down. Every project gets its own poster.</p>
   </div>
   <img class="kid" src="assets/kerem.png" alt="Pixel-art Kerem, hands in pockets" width="384" height="1234">
 </header>
@@ -126,7 +127,7 @@
 
   <!-- Fiziyoo -->
   <section class="band poster p-fizi" id="fiziyoo">
-    <div class="fade" aria-hidden="true" style="--to: #111111"></div>
+    <div class="fade" aria-hidden="true" style="--to: #F7F1E5"></div>
     <div class="copy">
       <img class="icon" src="assets/fiziyoo.png" alt="" width="72" height="72">
       <h2>Fiziyoo</h2>
@@ -188,6 +189,26 @@
     </div>
   </section>
 
+  <!-- 85 Milyonda 1 -->
+  <section class="band poster p-85" id="milyonda">
+    <div class="fade" aria-hidden="true" style="--to: #111111"></div>
+    <div class="copy">
+      <img class="icon" src="assets/85milyonda1.svg" alt="" width="72" height="72">
+      <p class="pop"><span data-tr="Türkiye'de">One of</span> <b class="pop-n" data-tr="86.092.168">86,092,168</b> <span data-tr="kişiden biri">people in Turkey</span></p>
+      <h2 aria-label="85 Milyonda 1">85 Milyonda <em>1</em></h2>
+      <svg class="kilim" viewBox="0 0 240 14" aria-hidden="true"><defs><pattern id="kp" width="24" height="14" patternUnits="userSpaceOnUse"><rect width="24" height="14" fill="#F7F1E5"/><path d="M12 1 19 7 12 13 5 7Z" fill="#A5392D"/><path d="M12 4.5 15.5 7 12 9.5 8.5 7Z" fill="#EFE6D2"/><rect width="24" height="1.5" fill="#22395C"/><rect y="12.5" width="24" height="1.5" fill="#22395C"/><rect x="0" y="5.5" width="2" height="3" fill="#A37018"/><rect x="22" y="5.5" width="2" height="3" fill="#A37018"/></pattern></defs><rect width="240" height="14" fill="url(#kp)"/></svg>
+      <span class="tag" data-tr="Web'de yayında">Live on the web</span>
+      <p class="say" data-tr="Türkiye'nin gerçek istatistiklerine dayanan bir hayat simülasyonu.">A life simulation built on Turkey's real statistics.</p>
+      <p data-tr="TÜİK verisine göre ağırlıklı rastgele bir yerde doğuyorsun, sonra hayatın yıl yıl akıyor. Sonunda paylaşabileceğin bir kart çıkıyor.">You're born at random, weighted by official TÜİK data, then your life unfolds year by year. At the end you get a card to share.</p>
+      <p class="stack" data-tr="Next.js · TypeScript · TÜİK verisi · next/og">Next.js · TypeScript · TÜİK data · next/og</p>
+      <a class="cta" href="https://85milyondabir.vercel.app" data-tr="Bir hayat yaşa ↗">Live a life ↗</a>
+    </div>
+    <div class="shots">
+      <img src="assets/shots/85-card-1.jpg" alt="Life summary card: Emine, born 1992 in Antalya, a 93-year life" width="720" height="900" loading="lazy">
+      <img src="assets/shots/85-card-2.jpg" alt="Life summary card: Yusuf, born 1981 in Samsun, a 66-year life" width="720" height="900" loading="lazy">
+    </div>
+  </section>
+
   <!-- PlainParse -->
   <section class="band poster p-pp" id="plainparse">
     <div class="fade" aria-hidden="true" style="--to: #F1F0EC"></div>
@@ -217,7 +238,7 @@ entry.minute   <span class="c">// 1080, i.e. 18:00</span></pre>
     <h2 data-tr="Nasıl çalışıyorum">How I work</h2>
     <p data-tr="Yapay zekâyı sihirli bir kutu gibi değil, yönettiğim bir ekip gibi kullanıyorum. Commit'lerimde Claude'un ortak yazar olarak görünmesi bilinçli. Kendi kural ve beceri kütüphanemi tutuyorum; her proje bir öncekinden öğrendiklerimle başlıyor.">I treat AI as a team I direct, not a magic box. Claude shows up as co-author on my commits, on purpose. I keep my own library of rules and skills, so every project starts from what the last one taught me.</p>
     <ul class="how-chips" aria-hidden="true">
-      <li>SwiftUI</li><li>SwiftData + CloudKit</li><li>Vision</li><li>Firebase</li><li>React</li><li>MapKit</li><li>Claude Code</li>
+      <li>SwiftUI</li><li>SwiftData + CloudKit</li><li>Vision</li><li>Firebase</li><li>React</li><li>Next.js</li><li>MapKit</li><li>Claude Code</li>
     </ul>
     <div class="contact">
       <h3 data-tr="İletişim">Get in touch</h3>

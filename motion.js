@@ -7,7 +7,7 @@
 
   /* Progress bar and the current poster's name in the nav. These are information, so they run even with reduced motion. */
   const bar = document.getElementById("progress"), now = document.getElementById("now");
-  const NAMES = { here: "here.", notecook: "notecook", plainday: "plainday", sweetspot: "SweetSpot", fiziyoo: "Fiziyoo", milyonda: "85 Milyonda 1", plainparse: "PlainParse" };
+  const NAMES = { here: "here.", notecook: "notecook", plainday: "plainday", sweetspot: "SweetSpot", katman: "Katman", fiziyoo: "Fiziyoo", milyonda: "85 Milyonda 1", plainparse: "PlainParse" };
   ScrollTrigger.create({ start: 0, end: "max", onUpdate: s => gsap.set(bar, { scaleX: s.progress }) });
   Object.entries(NAMES).forEach(([id, name]) => ScrollTrigger.create({
     trigger: "#" + id, start: "top 50%", end: "bottom 50%",
@@ -108,6 +108,11 @@
 
   /* SweetSpot: the sun rises behind the horizon as you scroll. */
   gsap.fromTo(".sun", { y: 260 }, { y: -300, ease: "none", scrollTrigger: { trigger: "#sweetspot", start: "top bottom", end: "bottom top", scrub: true } });
+
+  /* Katman: the layers go on one by one, bottom first, then the phones drift like the others. */
+  gsap.from(".layers li", { y: -40, opacity: 0, scale: 0.92, duration: 0.6, stagger: { each: 0.18, from: "end" }, ease: "back.out(1.6)",
+    scrollTrigger: { trigger: ".layers", start: "top 80%", ...replay } });
+  drift(".p-kat .shots img");
 
   /* Fiziyoo: a scan sweeps down the frame, landmarks appear, the skeleton draws,
      then the tilt measurements arrive with their error bands. */

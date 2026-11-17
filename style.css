@@ -110,6 +110,25 @@ a { color: inherit; }
 .p-sweet .shots img { border-radius: 24px; box-shadow: 0 24px 60px rgba(0, 0, 0, .5); }
 .p-sweet .shots img:nth-child(2) { transform: translateY(-40px); }
 
+/* Katman: a morning sky in the app's own blue, navy ink, the amber "take it off" colour, and the layers themselves. */
+.p-kat { background: linear-gradient(180deg, #EAF0F8 0%, #D3E0F2 55%, #BFD1EA 100%); color: #14243A; }
+.p-kat h2 { margin: 0; font: 800 clamp(64px, 10vw, 140px)/.9 "Inter Tight", var(--sans); letter-spacing: -.055em; }
+.p-kat .tag { background: #F0B44C; color: #14243A; border-radius: 99px; }
+.p-kat .say { font-family: "Inter Tight", var(--sans); font-weight: 600; letter-spacing: -.01em; }
+.p-kat .cta { color: #14243A; }
+.p-kat .stack { color: #3E5068; opacity: 1; }
+.layers { list-style: none; margin: 4px 0; padding: 0; display: grid; gap: 6px; width: min(340px, 100%); }
+.layers li { display: flex; justify-content: space-between; align-items: baseline; gap: 12px; padding: 12px 16px; border-radius: 14px; font: 600 15px/1.2 "Inter Tight", var(--sans); }
+.layers span { font: 600 12px/1 var(--mono); color: #9A5A00; }
+.layers .l1 { background: #F8FAFC; margin: 0 24px; }
+.layers .l2 { background: #DCE7F7; margin: 0 12px; box-shadow: 0 6px 14px rgba(20, 36, 58, .08); }
+.layers .l3 { background: #FBE6BF; box-shadow: 0 10px 22px rgba(20, 36, 58, .12); }
+.p-kat .shots { gap: 0; }
+.p-kat .shots img { border-radius: 26px; box-shadow: 0 30px 60px rgba(20, 36, 58, .22); height: auto; width: 40%; max-width: 280px; }
+.p-kat .shots img:nth-child(1) { transform: rotate(-6deg) translateX(14%) translateY(30px); }
+.p-kat .shots img:nth-child(2) { z-index: 1; }
+.p-kat .shots img:nth-child(3) { transform: rotate(6deg) translateX(-14%) translateY(30px); }
+
 /* Fiziyoo */
 .p-fizi { background: radial-gradient(60% 80% at 75% 50%, #0F4146 0%, #061719 62%); color: #CFF7F2; }
 .p-fizi h2 { margin: 0; font: 700 clamp(56px, 8.5vw, 120px)/.9 "Chakra Petch", sans-serif; letter-spacing: .04em; text-transform: uppercase; color: #3FE6D6; text-shadow: 0 0 32px rgba(63, 230, 214, .45); }
@@ -168,6 +187,9 @@ a { color: inherit; }
   .p-note .shots img:nth-child(1) { transform: rotate(-3deg) translateX(6%); }
   .p-here .shots img:nth-child(3) { display: none; }
   .p-here .shots img { max-width: 46%; }
+  .p-kat .shots img:nth-child(3) { display: none; }
+  .p-kat .shots img { width: 48%; max-width: 48%; }
+  .p-kat .shots img:nth-child(1) { transform: rotate(-4deg) translateX(8%) translateY(24px); }
   .p-85 { padding-bottom: 170px; }
   .p-85 .shots img { height: auto; width: 54%; max-width: 54%; }
   /* Phone intro: name and line on top, the counts sit beside Kerem, who stands on the section edge. */

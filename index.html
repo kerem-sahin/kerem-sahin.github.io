@@ -10,7 +10,7 @@
 <link rel="icon" href="assets/favicon.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=Geist:wght@400;500;600&family=Geist+Mono:wght@400;500;600&family=Bricolage+Grotesque:opsz,wght@12..96,700;12..96,800&family=DM+Serif+Display:ital@0;1&family=Fraunces:opsz,wght@9..144,500;9..144,600&family=Chakra+Petch:wght@500;700&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=Geist:wght@400;500;600&family=Geist+Mono:wght@400;500;600&family=Bricolage+Grotesque:opsz,wght@12..96,700;12..96,800&family=DM+Serif+Display:ital@0;1&family=Fraunces:opsz,wght@9..144,500;9..144,600&family=Chakra+Petch:wght@500;700&family=Inter+Tight:wght@600;800&display=swap">
 <link rel="stylesheet" href="style.css">
 </head>
 <body>
@@ -30,6 +30,7 @@
     <ul class="counts">
       <li><i class="dot live"></i><span data-tr="4 uygulama App Store'da">4 apps on the App Store</span></li>
       <li><a href="https://85milyondabir.com.tr" aria-label="85 Milyonda 1"><i class="dot web"></i><span data-tr="1 web projesi yayında ↗">1 web project live ↗</span></a></li>
+      <li><a href="#katman"><i class="dot review"></i><span data-tr="1 uygulama yakında">1 app coming soon</span></a></li>
       <li><i class="dot dev"></i><span data-tr="1 uygulama yapımda">1 in development</span></li>
       <li><i class="dot oss"></i><span data-tr="1 açık kaynak paket">1 open-source package</span></li>
     </ul>
@@ -107,7 +108,7 @@
 
   <!-- SweetSpot -->
   <section class="band poster p-sweet" id="sweetspot">
-    <div class="fade" aria-hidden="true" style="--to: #061719"></div>
+    <div class="fade" aria-hidden="true" style="--to: #EAF0F8"></div>
     <div class="sun" aria-hidden="true"></div>
     <div class="shots">
       <img src="assets/shots/sweetspot-1.jpg" alt="SweetSpot map" loading="lazy">
@@ -122,6 +123,30 @@
       <p data-tr="Her yerin fotoğrafı yerinde çekiliyor, yeni paylaşımlar yayına girmeden denetleniyor.">Every place is photographed on the spot, and new posts are moderated before they go live.</p>
       <p class="stack">SwiftUI · MapKit · Firebase · Cloud Functions</p>
       <a class="cta" href="https://apps.apple.com/tr/app/sweetspot-sakl%C4%B1-yerler/id6824031187" data-tr="App Store'dan indir ↗">Get it on the App Store ↗</a>
+    </div>
+  </section>
+
+  <!-- Katman -->
+  <section class="band poster p-kat" id="katman">
+    <div class="fade" aria-hidden="true" style="--to: #061719"></div>
+    <div class="copy">
+      <img class="icon" src="assets/katman.png" alt="" width="72" height="72">
+      <h2>Katman</h2>
+      <span class="tag" data-tr="Yakında App Store'da">Coming soon to the App Store</span>
+      <p class="say" data-tr="Her sabah tek karar: bugün ne giyeceğin.">One decision every morning: what to wear today.</p>
+      <ol class="layers" aria-label="Example decision: T-shirt, sweatshirt, light jacket off at 12:00">
+        <li class="l3"><b data-tr="İnce ceket">Light jacket</b><span data-tr="12:00'de çıkar">off at 12:00</span></li>
+        <li class="l2"><b>Sweatshirt</b></li>
+        <li class="l1"><b data-tr="Tişört">T-shirt</b></li>
+      </ol>
+      <p data-tr="Dışarıda olacağın saatlerin havasına bakıyor ve tek cümle söylüyor. Akşam üşüyüp üşümediğini söyledikçe seni tanıyor. Hesap yok, her şey telefonunda kalıyor.">It reads the forecast for the hours you're outside and gives you one sentence. Each evening you say whether you were cold, and it learns how you feel the cold. No account; everything stays on your phone.</p>
+      <p class="stack">SwiftUI · WidgetKit · Swift Charts · Open-Meteo</p>
+      <a class="cta" href="https://kerem-sahin.github.io/katman/" data-tr="Uygulamanın sayfası ↗">App page ↗</a>
+    </div>
+    <div class="shots">
+      <img src="assets/shots/katman-1.jpg" alt="Katman decision screen: wear a light jacket, take it off at 12:00" width="440" height="956" loading="lazy">
+      <img src="assets/shots/katman-2.jpg" alt="Katman on a cold day in Erzurum: wear a puffer jacket" width="440" height="956" loading="lazy">
+      <img src="assets/shots/katman-3.jpg" alt="Katman's You tab: how quickly each part of you gets cold" width="440" height="956" loading="lazy">
     </div>
   </section>
 

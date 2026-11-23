@@ -2,4 +2,4 @@
 
 My portfolio site: https://kerem-sahin.github.io
 
-Plain HTML, CSS and JavaScript, with [GSAP](https://gsap.com) ScrollTrigger and [Lenis](https://lenis.darkroom.engineering) for the scroll motion. No build step. English and Turkish.
+Plain HTML, CSS and JavaScript. The whole page is one day drawn as pixel art on a canvas (`pixel.js`); scrolling moves the clock and each app has its own hour. No libraries, no build step. English and Turkish.

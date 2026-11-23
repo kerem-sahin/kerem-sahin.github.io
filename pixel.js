@@ -67,7 +67,9 @@ window.PX = (() => {
     bm.rect = (x, y, rw, rh, c) => { for (let j = 0; j < rh; j++) for (let i = 0; i < rw; i++) bm.put(x + i, y + j, c); };
     // a: 0..1 yoğunluk; damalı doldurur (piksel sanatında yarı saydamlık yerine)
     bm.dither = (x, y, rw, rh, c, a) => { for (let j = 0; j < rh; j++) for (let i = 0; i < rw; i++) if (a > thr(x + i, y + j)) bm.put(x + i, y + j, c); };
-    bm.tint = (x, y, c, k) => bm.put(x, y, mix(bm.get(x, y), c, k));
+    // Renge doğru karıştır; dizi üretmeden (her karede binlerce kez çağrılıyor, telefonda çöp toplama kasıyordu).
+    bm.tint = (x, y, c, k) => { x |= 0; y |= 0; if (x < 0 || y < 0 || x >= w || y >= h) return; const i = (y * w + x) * 4;
+      d[i] += (c[0] - d[i]) * k; d[i + 1] += (c[1] - d[i + 1]) * k; d[i + 2] += (c[2] - d[i + 2]) * k; d[i + 3] = 255; };
     bm.vgrad = (x, y, rw, rh, cols) => {
       const n = cols.length - 1;
       for (let j = 0; j < rh; j++){ const t = (j / Math.max(1, rh)) * n, i0 = Math.min(n - 1, t | 0), f = t - i0;
@@ -169,9 +171,12 @@ window.PX = (() => {
     const { w, h } = bm, hz = Math.round(o.hz), t = o.t || 0;
     const sky = skyAt(m), n = nightness(m), sa = sunArc(m);
     // gökyüzü: 3 bant, geçişler damalı
+    // en sık çalışan döngü: doğrudan diziye yaz
+    const D = bm.d;
     for (let y = 0; y < Math.min(hz, h); y++){
-      const f0 = (y / Math.max(1, hz)) * 3, i = Math.min(2, f0 | 0), f = f0 - i;
-      for (let x = 0; x < w; x++) bm.put(x, y, f > thr(x, y) ? sky[i + 1] : sky[i]);
+      const f0 = (y / Math.max(1, hz)) * 3, i = Math.min(2, f0 | 0), f = f0 - i, a = sky[i], b = sky[i + 1], row = (y & 3) * 4;
+      let o = y * w * 4;
+      for (let x = 0; x < w; x++, o += 4){ const c = f > (BAYER[row + (x & 3)] + .5) / 16 ? b : a; D[o] = c[0]; D[o + 1] = c[1]; D[o + 2] = c[2]; D[o + 3] = 255; }
     }
     // yıldızlar (bazıları yavaşça göz kırpar)
     if (n > .05) for (let k = 0; k < STARS.length; k++){
@@ -241,15 +246,16 @@ window.PX = (() => {
       const fx = x / Math.max(1, u);
       const fh = hz - Math.round(u * (7 + 4 * Math.sin(fx * .045 + 1) + 3 * Math.sin(fx * .11 + 2) + 2 * Math.sin(fx * .23)));
       const nh = hz + Math.round(u * (2 + 2 * Math.sin(fx * .03 + 4) + 1.5 * Math.sin(fx * .09)));
-      for (let y = Math.min(fh, hz); y < h; y++){
-        if (y < nh) bm.put(x, y, farC);
+      for (let y = Math.max(0, Math.min(fh, hz)); y < h; y++){
+        let c;
+        if (y < nh) c = farC;
         else {
           const deep = (y - nh) / Math.max(1, h - nh);
           // çimen dokusu: kısa dikey çizgiler; gece kaybolur (gece çayırı düz ve sakin)
           const blade = n < .6 && ((x * 7 + (y >> 1) * 13) % 23 === 0);
-          const c = deep > thr(x + 1, y) * 1.4 ? nearC2 : nearC;
-          bm.put(x, y, blade ? bladeC : c);
+          c = blade ? bladeC : (deep > thr(x + 1, y) * 1.4 ? nearC2 : nearC);
         }
+        const o = (y * w + x) * 4; D[o] = c[0]; D[o + 1] = c[1]; D[o + 2] = c[2]; D[o + 3] = 255;
       }
     }
     // ağaçlar: iki tür (yuvarlak, sivri), ufuk çizgisinde

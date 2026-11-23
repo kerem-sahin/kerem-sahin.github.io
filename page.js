@@ -202,6 +202,11 @@
     }));
   }
 
+  // Çizimdeki "Ayrıntı ve ekranlar" bağlantısı ya da #d-… adresi: o uygulamanın kapalı bloğunu aç.
+  const openDetail = (hash) => { const d = hash && hash.startsWith("#d-") ? document.querySelector(hash + " details") : null; if (d) d.open = true; };
+  document.addEventListener("click", (e) => { const a = e.target.closest('a[href^="#d-"]'); if (a) openDetail(a.getAttribute("href")); });
+  openDetail(location.hash);
+
   // Panels rise in as they enter.
   const io = "IntersectionObserver" in window ? new IntersectionObserver((es) => es.forEach((e) => {
     if (e.isIntersecting) { e.target.classList.add("in"); io.unobserve(e.target); }

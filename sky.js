@@ -5,7 +5,7 @@
   const { RM, clamp, lerp, smooth } = PX;
   const canvas = document.getElementById("sky");
   const ctx = canvas.getContext("2d", { alpha: false });
-  const easeOutCubic = (t) => 1 - Math.pow(1 - clamp(t), 3);
+  const easeInOut = (t) => { t = clamp(t); return t < 0.5 ? 4 * t * t * t : 1 - Math.pow(-2 * t + 2, 3) / 2; };
 
   // ── SAAT ADLARI (göstergede) ───────────────────────────────
   const PHASES = [
@@ -48,7 +48,9 @@
     vw = nw;
     if (small) return; // iOS araç çubuğu: yeniden ölçmek kaydırmayı takıyordu; küçük farkı CSS esnetir
     vh = nh; P = pixelSize(vw);
-    canvas.width = Math.ceil(vw / P); canvas.height = Math.ceil(vh / P);
+    // Tuval CSS'te 100lvh: iOS'ta alt çubuk kapanınca da uzamaz, piksel esnemez. Bitmap o yüksekliğe göre.
+    const ch = Math.max(vh, canvas.getBoundingClientRect().height || 0);
+    canvas.width = Math.max(1, Math.ceil(vw / P)); canvas.height = Math.max(1, Math.ceil(ch / P));
     bm = PX.Bitmap(canvas.width, canvas.height);
     measureAnchors();
     measureWindow();
@@ -103,14 +105,19 @@
   function updateOpening() {
     if (!openingEl) return;
     const p = clamp(window.scrollY / travel);
-    const open = easeOutCubic(clamp(p / 0.62));
+    // Önce yazı çekilir, sonra pencere yavaşça başlayıp açılır (yazının üstüne binmesin).
+    const open = easeInOut(clamp((p - 0.06) / 0.62));
     openAmt = open;
-    const key = p.toFixed(4);
+    // Açılış bitince sahne yukarı kayar; şafak yazısı yerinde kalıp söner (üst şeridin altına girmesin).
+    const after = Math.min(Math.max(0, window.scrollY - travel), vh * 0.3);
+    const key = p.toFixed(4) + "|" + Math.round(after);
     if (key === lastOpenKey) return;
     lastOpenKey = key;
     const t = win.top * (1 - open), r = win.right * (1 - open), b = win.bottom * (1 - open), l = win.left * (1 - open);
     const rad = 6 * (1 - open);
-    canvas.style.clipPath = open >= 0.999 ? "none" : `inset(${t.toFixed(1)}px ${r.toFixed(1)}px ${b.toFixed(1)}px ${l.toFixed(1)}px round ${rad.toFixed(1)}px)`;
+    // Alt kenar üstten ölçülür: iOS'ta tuval uzasa da pencere çerçeveyle hizalı kalır.
+    const bottomEdge = vh - b;
+    canvas.style.clipPath = open >= 0.999 ? "none" : `inset(${t.toFixed(1)}px ${r.toFixed(1)}px calc(100% - ${bottomEdge.toFixed(1)}px) ${l.toFixed(1)}px round ${rad.toFixed(1)}px)`;
     if (openStage) {
       const st = openStage.style;
       st.setProperty("--win-top", t.toFixed(1) + "px");
@@ -119,9 +126,10 @@
       st.setProperty("--win-h", (vh - t - b).toFixed(1) + "px");
       st.setProperty("--win-r", rad.toFixed(1) + "px");
       st.setProperty("--frame", Math.max(0, 1 - open * 1.5).toFixed(3));
-      st.setProperty("--caption", (1 - smooth(0.0, 0.22, p)).toFixed(3));
+      st.setProperty("--caption", (1 - smooth(0.0, 0.1, p)).toFixed(3));
       st.setProperty("--caption-top", (win.top + (vh - win.top - win.bottom) + 22).toFixed(1) + "px");
-      st.setProperty("--dawn", smooth(0.62, 0.86, p).toFixed(3));
+      st.setProperty("--dawn", (smooth(0.62, 0.86, p) * (1 - smooth(0, vh * 0.3, after))).toFixed(3));
+      st.setProperty("--dawn-y", after.toFixed(1) + "px");
     }
     const isOpen = open > 0.55 || window.scrollY > travel;
     if (docEl.dataset.open !== String(isOpen)) docEl.dataset.open = String(isOpen);

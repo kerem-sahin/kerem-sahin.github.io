@@ -16,7 +16,7 @@ img { max-width: 100%; display: block; }
 a { color: inherit; }
 :focus-visible { outline: 2px solid #4F94FF; outline-offset: 3px; }
 
-#sky { position: fixed; inset: 0; width: 100%; height: 100%; z-index: 0; display: block; image-rendering: pixelated; image-rendering: crisp-edges; }
+#sky { position: fixed; top: 0; left: 0; width: 100%; height: 100%; height: 100lvh; z-index: 0; display: block; image-rendering: pixelated; image-rendering: crisp-edges; }
 main, .foot { position: relative; z-index: 1; }
 
 /* Üst şerit */
@@ -39,7 +39,7 @@ html[data-open="false"] .lang { border-color: var(--line); background: rgba(255,
   border-radius: var(--win-r, 6px); opacity: var(--frame, 1); pointer-events: none;
   box-shadow: 0 0 0 1px rgba(28, 27, 25, .18), 8px 8px 0 rgba(28, 27, 25, .12); }
 .opening-caption { position: absolute; left: 0; right: 0; top: var(--caption-top, 72vh); display: grid; justify-items: center; gap: 12px; padding: 0 20px; text-align: center;
-  opacity: var(--caption, 1); transform: translateY(calc((1 - var(--caption, 1)) * -18px)); }
+  opacity: var(--caption, 1); transform: translateY(calc((1 - var(--caption, 1)) * 16px)); }
 .opening-caption h1 { margin: 0; font: 600 clamp(34px, 4.4vw, 52px)/1 var(--sans); letter-spacing: -.045em; color: var(--ink); }
 .lead { margin: 0; font-size: clamp(15.5px, 1.5vw, 18px); line-height: 1.45; max-width: 38ch; color: var(--sub); }
 .counts { list-style: none; margin: 4px 0 0; padding: 0; display: flex; flex-wrap: wrap; justify-content: center; gap: 6px; }
@@ -49,7 +49,7 @@ html[data-open="false"] .lang { border-color: var(--line); background: rgba(255,
 .scroll-hint::after { content: ""; display: block; width: 1px; height: 22px; margin: 8px auto 0; background: currentColor; opacity: .6; animation: hint 1.8s steps(6) infinite; transform-origin: top; }
 @keyframes hint { 0%, 100% { transform: scaleY(.3); } 50% { transform: scaleY(1); } }
 .dawn { position: absolute; inset: 0; opacity: var(--dawn, 0); pointer-events: none; }
-.dawn-copy { position: absolute; left: var(--gutter); right: var(--gutter); top: 22vh; display: grid; gap: 16px; justify-items: start; }
+.dawn-copy { position: absolute; left: var(--gutter); right: var(--gutter); top: 22vh; transform: translateY(var(--dawn-y, 0px)); display: grid; gap: 16px; justify-items: start; }
 .dawn-line { margin: 0; max-width: 16ch; font: 600 clamp(30px, 4.2vw, 56px)/1.04 var(--sans); letter-spacing: -.045em; color: #FBF7EF; text-shadow: 3px 3px 0 rgba(20, 22, 44, .45); }
 
 /* Bölümler: gün boyunca sadece çizim. Altında kısa bir yazı; ayrıntılar ertesi sabah. */
@@ -135,13 +135,17 @@ html[data-open="false"] .lang { border-color: var(--line); background: rgba(255,
 .interlude-text p:last-child { margin: 0; font-size: clamp(16px, 1.6vw, 20px); line-height: 1.45; color: rgba(251, 247, 239, .88); }
 
 .morning { padding: 30vh var(--gutter) 10vh; }
-.sheet { max-width: 1180px; margin: 0 auto; background: var(--paper); border-radius: 6px; box-shadow: var(--shadow); padding: clamp(24px, 4vw, 56px); display: grid; gap: clamp(28px, 4vw, 44px); }
-.sheet-head { display: grid; gap: 12px; max-width: 52ch; }
+/* Ertesi sabah: her uygulama kendi kâğıdında; aralarından sabah görünür. */
+.sheet { max-width: 1180px; margin: 0 auto; display: grid; gap: clamp(16px, 2.2vw, 26px); }
+.sheet-head, .detail { background: var(--paper); border-radius: 6px; box-shadow: var(--shadow); padding: clamp(22px, 3.4vw, 44px); }
+.sheet-head { margin-bottom: clamp(4px, 1vw, 12px); }
+.sheet-head { display: grid; gap: 12px; }
+.sheet-head > * { max-width: 52ch; }
 .sheet-head .act { color: var(--muted); }
 .sheet-head h2 { margin: 0; font: 600 clamp(40px, 5.4vw, 72px)/.95 var(--sans); letter-spacing: -.05em; }
 .sheet-head p:last-child { margin: 0; color: var(--sub); }
 /* Her uygulama kısa bir satır; ayrıntı ve ekranlar dokununca açılır (telefonda sayfa kısa kalsın). */
-.detail { padding-top: clamp(20px, 3vw, 28px); border-top: 1px solid var(--line); scroll-margin-top: 80px; }
+.detail { scroll-margin-top: 80px; }
 .detail-head { display: grid; grid-template-columns: minmax(0, 280px) minmax(0, 1fr) auto; grid-template-areas: "hour hour hour" "id say cta"; align-items: center; gap: 10px 28px; }
 .detail-head .hour { grid-area: hour; margin: 0; }
 .detail-head .id { grid-area: id; gap: 14px; }
@@ -185,7 +189,7 @@ html[data-open="false"] .lang { border-color: var(--line); background: rgba(255,
   .chapter, .chapter.flip { grid-template-columns: minmax(0, 1fr); min-height: 0; padding-top: 44px; padding-bottom: 44px; }
   .opening { height: 190vh; }
   .morning { padding-top: 16vh; padding-bottom: 6vh; }
-  .sheet { padding: 22px 18px; }
+  .sheet-head, .detail { padding: 22px 18px; }
   .chapter .vig, .chapter.flip .vig { grid-column: auto; justify-self: stretch; width: 100%; margin: 0; }
   .vig figcaption { grid-template-columns: minmax(0, 1fr); }
   .vig .more { grid-column: 1; grid-row: auto; justify-self: start; margin-top: 8px; }
@@ -194,6 +198,8 @@ html[data-open="false"] .lang { border-color: var(--line); background: rgba(255,
 @media (max-width: 860px) {
   .detail-head { grid-template-columns: minmax(0, 1fr); grid-template-areas: "hour" "id" "say" "cta"; gap: 10px; }
   .detail-head .cta { justify-self: start; }
+  .detail-head:has(.sub) { grid-template-areas: "hour" "id" "sub" "say" "cta"; }
+  .detail-head .sub { grid-area: sub; }
   .detail-body { grid-template-columns: minmax(0, 1fr); }
   .shots { margin-right: -18px; }
   .interlude { min-height: 70vh; }

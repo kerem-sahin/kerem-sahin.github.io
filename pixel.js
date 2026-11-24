@@ -286,8 +286,8 @@ window.PX = (() => {
     const ax = Math.round(av.x - AV.w / 2), footY = Math.round(av.feet), ay = footY - AV.h;
     const cxA = ax + AV.w / 2;
     const show = (X, Y) => vis >= 1 || vis > thr(X + 2, Y + 1); // damalı belirme/kaybolma
-    // Sokak lambası: akşam yanar, sabaha karşı söner
-    const x24 = wrap(m), lampOn = lampOnAt(m), lampVis = vis * (x24 >= 720 ? smooth(1060, 1140, x24) : 1 - smooth(440, 500, x24));
+    // Sokak lambası: direk gün boyu yerinde; ışığı akşam yanar, sabah söner.
+    const lampOn = lampOnAt(m), lampVis = vis;
     const lampX = ax + AV.w + Math.round(AV.w * .3), lampTop = footY - Math.round(AV.h * 1.12);
     const hx = lampX - 5, hy = lampTop + 3;
     if (lampOn > .02 && lampVis > .02){

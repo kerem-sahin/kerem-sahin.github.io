@@ -53,31 +53,18 @@ html[data-open="false"] .lang { border-color: var(--line); background: rgba(255,
 /* Bölümler: gün boyunca sadece çizim. Altında kısa bir yazı; ayrıntılar ertesi sabah. */
 .chapter { min-height: 100vh; display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); align-items: center;
   padding: clamp(80px, 10vh, 120px) var(--gutter); }
-.chapter .vig { grid-column: 1 / span 2; justify-self: start; margin-left: clamp(0px, 4vw, 60px); }
-.chapter.flip .vig { justify-self: end; margin-left: 0; margin-right: clamp(0px, 4vw, 60px); }
 .detail-text p { margin: 0; color: var(--sub); }
 .hour { font: 500 12px/1 var(--mono) !important; letter-spacing: .1em; text-transform: uppercase; color: var(--muted) !important; }
 .id { display: flex; align-items: center; gap: 16px; }
 .icon { width: 64px; height: 64px; border-radius: 15px; }
 .detail-text h2 { margin: 0 0 6px; font: 600 clamp(40px, 5vw, 62px)/.95 var(--sans); letter-spacing: -.05em; color: var(--ink); }
 .tag { display: inline-block; font: 500 11px/1 var(--mono); letter-spacing: .08em; text-transform: uppercase; padding: 6px 9px; border-radius: 4px; border: 1px solid var(--line); color: var(--sub); }
-.detail-text .say, .vig .say { font: 500 clamp(19px, 1.9vw, 23px)/1.3 var(--sans); color: var(--ink); letter-spacing: -.02em; }
+.detail-text .say { font: 500 clamp(19px, 1.9vw, 23px)/1.3 var(--sans); color: var(--ink); letter-spacing: -.02em; }
 .stack { font: 500 12.5px/1.5 var(--mono) !important; color: var(--muted) !important; }
 .cta { justify-self: start; display: inline-flex; align-items: center; gap: 8px; font: 500 14px/1 var(--sans); text-decoration: none; color: var(--paper); background: var(--ink); padding: 13px 18px; border-radius: 4px; }
 .cta:hover { background: #34322D; }
 
 /* Piksel pencere: çizim ve altında kâğıt bir şerit (fotoğraf gibi) */
-.vig { margin: 0; width: min(100%, 700px); background: var(--paper); border-radius: 6px; padding: 10px; box-shadow: var(--shadow); display: grid; gap: 0; }
-.vig canvas { display: block; image-rendering: pixelated; image-rendering: crisp-edges; border-radius: 3px; justify-self: center; }
-.vig figcaption { display: grid; grid-template-columns: minmax(0, 1fr) auto; align-items: end; gap: 4px 20px; padding: 16px 8px 8px; }
-.vig figcaption h2 { margin: 0; font: 600 clamp(30px, 3.4vw, 44px)/1 var(--sans); letter-spacing: -.05em; color: var(--ink); grid-column: 1; }
-.vig figcaption .say { margin: 0; grid-column: 1; color: var(--sub); font-size: clamp(16px, 1.5vw, 19px); }
-.vig .more { grid-column: 2; grid-row: 2 / span 2; align-self: end; font: 500 12.5px/1 var(--mono); text-decoration: none; color: var(--ink); padding: 10px 12px; border: 1px solid var(--line); border-radius: 4px; white-space: nowrap; }
-.vig .more:hover { border-color: var(--ink); }
-.vig.dark { background: var(--night); box-shadow: 0 0 0 1px rgba(237, 232, 221, .14), 6px 6px 0 rgba(0, 0, 0, .35); }
-.vig.dark figcaption h2 { color: var(--on-night); }
-.vig.dark figcaption .say { color: var(--on-night-sub); }
-.vig.dark .more { color: var(--on-night); border-color: rgba(237, 232, 221, .25); }
 
 /* Katman: uygulamadaki karar cümlesi */
 .decision { display: grid; gap: 2px; padding: 16px 18px; border-radius: 4px; background: var(--paper-2); }
@@ -135,39 +122,30 @@ html[data-open="false"] .lang { border-color: var(--line); background: rgba(255,
 /* Gün: yazısız, kesintisiz; kaydırdıkça güneş geçer, hava kararır. */
 .gun { height: 240vh; }
 
-/* Doruk: pencere büyür, odada mantar pano; polaroidler notların üstüne iğnelenir. */
-.doruk { height: 460vh; position: relative; }
-.doruk-stage { position: sticky; top: 0; height: 100vh; height: 100lvh; overflow: hidden; }
-.doruk-room { position: absolute; left: 0; top: 0; width: 100%; height: 100%; display: block; opacity: 0; image-rendering: pixelated; image-rendering: crisp-edges; }
-.doruk-frame { position: absolute; display: none; border: 4px solid #3b2a1e; background: #ffd9a0; box-sizing: border-box; pointer-events: none; }
-.doruk-frame::before, .doruk-frame::after { content: ""; position: absolute; background: #3b2a1e; opacity: var(--cross, 1); }
-.doruk-frame::before { left: calc(50% - var(--bar, 2px) / 2); top: 0; bottom: 0; width: var(--bar, 2px); }
-.doruk-frame::after { top: calc(50% - var(--bar, 2px) / 2); left: 0; right: 0; height: var(--bar, 2px); }
-.doruk-pins { position: absolute; inset: 0; pointer-events: none; }
-.pol { position: absolute; display: none; padding: 6px 6px 0; background: #FBF8F2; border-radius: 2px; text-decoration: none; color: var(--ink); pointer-events: auto;
-  box-shadow: var(--lift, 2px) var(--lift, 2px) 0 rgba(6, 8, 20, .45); transform-origin: 50% 0; }
-.pol::before { content: ""; position: absolute; left: calc(50% - 5px); top: -4px; width: 10px; height: 10px; border-radius: 50%; background: #d8452e; box-shadow: 1px 2px 0 rgba(0, 0, 0, .35), inset -2px -2px 0 #a83322; }
-.pol canvas { display: block; width: 100%; height: auto; aspect-ratio: 128 / 72; image-rendering: pixelated; image-rendering: crisp-edges; }
-.pol-name { display: block; font: 600 13px/1 var(--sans); letter-spacing: -.02em; padding: 7px 1px 8px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
-.pol:hover .pol-name { text-decoration: underline; text-underline-offset: 3px; }
-@media (min-width: 760px) { .pol-name { font-size: 15px; padding-top: 8px; } }
-.doruk-line { position: absolute; left: 20px; right: 20px; margin: 0; text-align: center; pointer-events: none; opacity: 0; color: #FBF7EF;
-  text-shadow: 3px 3px 0 rgba(6, 8, 20, .55), 0 0 18px rgba(6, 8, 20, .5); }
-.doruk-line1 { top: 8vh; font: 600 clamp(30px, 5vw, 64px)/1.02 var(--sans); letter-spacing: -.045em; }
-.doruk-line2 { bottom: 5vh; bottom: calc(100lvh - 100svh + 5svh); font: 500 clamp(15px, 1.6vw, 19px)/1.4 var(--sans); color: rgba(251, 247, 239, .92); }
-.no-js .gun, .no-js .doruk { display: none; }
-.no-js .chapter .moment-text .act, .no-js .moment-line { color: var(--ink); text-shadow: none; }
-@media (orientation: landscape) and (max-height: 560px) {
-  .doruk-line1 { top: 60px; font-size: 24px; }
-  .pol-name { font-size: 11px; padding: 5px 1px 6px; }
-}
+/* Doruk: gece, karakter lambanın altında; cümlenin ikinci yarısı. */
+.climax { min-height: 100vh; display: grid; align-items: center; justify-items: center; padding: 0 var(--gutter); text-align: center; }
+.climax-text { display: grid; gap: 14px; color: #FBF7EF; text-shadow: 3px 3px 0 rgba(10, 12, 30, .4), 0 0 18px rgba(10, 12, 30, .35); }
+.climax-text h2 { margin: 0; font: 600 clamp(52px, 8.5vw, 120px)/.95 var(--sans); letter-spacing: -.055em; }
+.climax-text p { margin: 0; font-size: clamp(17px, 1.8vw, 22px); color: rgba(251, 247, 239, .92); }
+.no-js .gun { display: none; }
 
-/* Gece: her uygulama kendi anıyla. An üstte, çizim altında. */
-.chapter .moment-text { grid-column: 1 / span 2; display: grid; gap: 12px; max-width: min(640px, 100%); margin: 0 0 22px clamp(0px, 4vw, 60px); }
-.chapter.flip .moment-text { justify-self: end; margin: 0 clamp(0px, 4vw, 60px) 22px 0; }
-.chapter .moment-text .act { color: rgba(251, 247, 239, .78); }
-.moment-line { margin: 0; font: 600 clamp(22px, 2.6vw, 34px)/1.15 var(--sans); letter-spacing: -.03em; color: #FBF7EF; text-shadow: 3px 3px 0 rgba(10, 12, 30, .4), 0 0 16px rgba(10, 12, 30, .35); }
-/* Gece kartındaki gönderme: gündüzdeki anına geri götürür. */
+/* Vitrin: her uygulama aynı kalıpta, sakin bir kâğıt kartta. */
+.apps { padding: 4vh var(--gutter) 16vh; }
+.apps-grid { max-width: 1120px; margin: 0 auto; display: grid; grid-template-columns: repeat(auto-fill, minmax(min(100%, 440px), 1fr)); gap: clamp(20px, 3vw, 36px); align-items: start; }
+.app { background: var(--paper); border-radius: 6px; padding: 10px; box-shadow: 0 0 0 1px rgba(237, 232, 221, .14), 6px 6px 0 rgba(0, 0, 0, .35); scroll-margin-top: 76px; }
+.app-art canvas { display: block; margin: 0 auto; image-rendering: pixelated; image-rendering: crisp-edges; border-radius: 3px; }
+.app-body { display: grid; gap: 10px; justify-items: start; padding: 18px 10px 8px; }
+.app-body h2 { margin: 0; font: 600 clamp(30px, 3vw, 40px)/1 var(--sans); letter-spacing: -.05em; color: var(--ink); }
+.app-why { margin: 0; font: 600 clamp(18px, 1.6vw, 21px)/1.3 var(--sans); letter-spacing: -.02em; color: var(--ink); }
+.app-say { margin: 0; color: var(--sub); }
+.app-foot { width: 100%; margin: 6px 0 0; padding-top: 14px; border-top: 1px solid var(--line); display: flex; align-items: center; justify-content: space-between; gap: 12px; }
+.app-link { display: inline-block; font: 500 13px/1 var(--mono); letter-spacing: .04em; color: var(--ink); text-decoration: none; border-bottom: 1.5px solid var(--ink); padding: 12px 0 4px; margin: -12px 0 0; }
+.app-link:hover { opacity: .7; }
+.app-link.static { color: var(--sub); border-bottom-style: dashed; border-bottom-color: var(--sub); }
+.app-plat { font: 500 12px/1 var(--mono); letter-spacing: .08em; text-transform: uppercase; color: var(--muted); }
+.app-more { width: 100%; }
+.no-js .app-art { display: none; }
+
 .oss a { color: var(--ink); }
 /* Üst şeritte uygulamalara kısayol */
 .jump { font: 500 12px/1 var(--mono); letter-spacing: .06em; text-decoration: none; padding: 11px 4px; }
@@ -182,7 +160,7 @@ html[data-open="false"] .lang { border-color: var(--line); background: rgba(255,
 .morning .interlude-text .act { color: var(--sub); }
 
 /* Ayrıntı: çizimin altında kapalı gelir, dokununca polaroidin içinde açılır. */
-.vig .detail-more { margin: 2px 8px 6px; }
+.app .detail-more { margin: 2px 0 0; }
 .detail-more summary { list-style: none; cursor: pointer; display: inline-flex; align-items: center; gap: 10px; font: 500 12.5px/1 var(--mono); color: var(--ink); padding: 10px 12px; border: 1px solid var(--line); border-radius: 4px; }
 .detail-more summary::-webkit-details-marker { display: none; }
 .detail-more summary::after { content: "+"; font-size: 15px; line-height: 1; }
@@ -191,14 +169,6 @@ html[data-open="false"] .lang { border-color: var(--line); background: rgba(255,
 .detail-body { display: grid; grid-template-columns: minmax(0, 1fr); gap: 22px; padding: 18px 0 6px; }
 .detail-text { display: grid; gap: 14px; max-width: 62ch; }
 .detail-text .sub { margin: 0 !important; font: 500 12px/1 var(--mono) !important; letter-spacing: .08em; text-transform: uppercase; }
-.vig .more.static { color: var(--muted); border-style: dashed; }
-/* Gece polaroidlerinde ayrıntı koyu zeminde okunur. */
-.vig.dark .detail-more summary { color: var(--on-night); border-color: rgba(237, 232, 221, .25); }
-.vig.dark .detail-more summary:hover { border-color: var(--on-night); }
-.vig.dark .detail-text p { color: var(--on-night-sub); }
-.vig.dark .origin { color: var(--on-night-sub) !important; border-left-color: var(--on-night); }
-.vig.dark .stack, .vig.dark .detail-text .sub { color: rgba(237, 232, 221, .5) !important; }
-.vig.dark .more.static { color: rgba(237, 232, 221, .6); }
 .shots { display: flex; gap: 16px; overflow-x: auto; scroll-snap-type: x mandatory; padding: 2px 8px 10px 2px; scrollbar-width: thin; }
 .shots img { flex: none; width: auto; scroll-snap-align: start; border-radius: 14px; box-shadow: 0 0 0 1px var(--line), 4px 4px 0 rgba(12, 14, 26, .12); background: var(--paper-2); }
 .shots .phone { height: clamp(300px, 34vw, 440px); }
@@ -213,20 +183,15 @@ html[data-open="false"] .lang { border-color: var(--line); background: rgba(255,
 .js .rise { opacity: 0; transform: translateY(28px); transition: opacity .9s ease, transform .9s cubic-bezier(.2, .7, .2, 1); }
 .js .rise.in { opacity: 1; transform: none; }
 /* JS yoksa gökyüzü çizilmez: gece bölümlerine koyu bir zemin, çizim tuvallerini gizle. */
-.no-js .interlude, .no-js .contact { background: var(--night); }
-.no-js .vig canvas { display: none; }
+.no-js .interlude, .no-js .contact, .no-js .climax, .no-js .apps { background: var(--night); }
 @media (prefers-reduced-motion: reduce) { .js .rise { opacity: 1; transform: none; transition: none; } .scroll-hint::after { animation: none; } }
 
 @media (max-width: 860px) {
   .dawn-copy { top: 16vh; }
   .chapter, .chapter.flip { grid-template-columns: minmax(0, 1fr); min-height: 0; padding-top: 44px; padding-bottom: 44px; }
   .opening { height: 190vh; }
-  .chapter .vig, .chapter.flip .vig { grid-column: auto; justify-self: stretch; width: 100%; margin: 0; }
-  .vig figcaption { grid-template-columns: minmax(0, 1fr); }
-  .vig .more { grid-column: 1; grid-row: auto; justify-self: start; margin-top: 8px; }
   .contact { min-height: 80vh; align-items: start; padding-top: 14vh; }
   .gun { height: 200vh; }
-  .chapter .moment-text, .chapter.flip .moment-text { grid-column: auto; justify-self: start; margin: 0 0 16px; }
 }
 @media (max-width: 860px) {
   .detail-body { grid-template-columns: minmax(0, 1fr); }

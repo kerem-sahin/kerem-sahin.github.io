@@ -20,7 +20,7 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600&family=Geist+Mono:wght@400;500&display=swap">
 <script>document.documentElement.classList.replace("no-js", "js");</script>
-<link rel="stylesheet" href="style.css?v=px28">
+<link rel="stylesheet" href="style.css?v=px29">
 </head>
 <body>
 
@@ -29,7 +29,7 @@
 <header class="nav">
   <a href="#opening" class="brand">Kerem Şahin</a>
   <span class="hud" id="hud" aria-hidden="true">06:15 · ŞAFAK</span>
-  <a class="jump" href="#katman" data-tr="Uygulamalar ↓" data-en="Apps ↓">Uygulamalar ↓</a>
+  <a class="jump" href="#uygulamalar" data-tr="Uygulamalar ↓" data-en="Apps ↓">Uygulamalar ↓</a>
   <button id="lang" class="lang" type="button" aria-label="Switch to English">EN</button>
 </header>
 
@@ -51,42 +51,36 @@
       </div>
       <div class="dawn">
         <div class="dawn-copy">
-          <p class="dawn-line" data-tr="Her uygulama günün bir anından çıktı." data-en="Each app came from a moment in the day.">Her uygulama günün bir anından çıktı.</p>
-          <p class="dawn-sub" data-tr="Önce gün geçiyor. Akşam, o anlar masaya geliyor." data-en="First the day goes by. In the evening, those moments reach the desk.">Önce gün geçiyor. Akşam, o anlar masaya geliyor.</p>
+          <p class="dawn-line" data-tr="Gündüz okul." data-en="School by day.">Gündüz okul.</p>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- Gün: yazısız, kesintisiz; güneş geçer, hava kararır, lamba yanar. -->
+  <!-- Gösteri: gün yazısız akar; güneş geçer, hava kararır, sokak lambası yanar. -->
   <section class="gun" aria-hidden="true"></section>
 
-  <!-- Doruk: avatar eve girer, pencere büyür, odada mantar pano; günün yedi anı ve üstlerine iğnelenen uygulamalar. -->
-  <section class="doruk" id="pano" data-mins="1245" data-anchor="start">
-    <div class="doruk-stage">
-      <div class="doruk-frame" aria-hidden="true"></div>
-      <canvas class="doruk-room" aria-hidden="true"></canvas>
-      <div class="doruk-pins"></div>
-      <p class="doruk-line doruk-line1" data-tr="Gündüz okul, gece uygulamalar." data-en="School by day, apps by night.">Gündüz okul, gece uygulamalar.</p>
-      <p class="doruk-line doruk-line2" data-tr="Gün içindeki yedi an, yedi uygulama oldu." data-en="Seven moments from the day became seven apps.">Gün içindeki yedi an, yedi uygulama oldu.</p>
+  <!-- Doruk: gece, karakter lambanın altında. Cümlenin ikinci yarısı. -->
+  <section class="climax" id="gece" data-mins="1250">
+    <div class="climax-text rise">
+      <h2 data-tr="Gece uygulamalar." data-en="Apps by night.">Gece uygulamalar.</h2>
+      <p data-tr="Okuldan sonra, akşamları yaptıklarım." data-en="What I built after school, in the evenings.">Okuldan sonra, akşamları yaptıklarım.</p>
     </div>
   </section>
 
-  <!-- Gece: her uygulama, kendi anıyla birlikte. -->
-  <section class="chapter" id="katman" data-mins="1265">
-        <div class="moment-text rise">
-      <p class="act" data-tr="07:30 · Sabah" data-en="07:30 · Morning">07:30 · Sabah</p>
-      <p class="moment-line" data-tr="Kapıdan çıkmadan aynı soru: bugün ne giysem?" data-en="Before heading out, the same question: what do I wear today?">Kapıdan çıkmadan aynı soru: bugün ne giysem?</p>
-    </div>
-    <figure class="vig rise" id="d-katman">
-      <canvas data-vig="katman" width="128" height="72" aria-hidden="true"></canvas>
-      <figcaption>
-        <h2>Katman</h2>
-        <p class="say" data-tr="Her sabah tek karar: bugün ne giyeceğin." data-en="One decision every morning: what to wear today.">Her sabah tek karar: bugün ne giyeceğin.</p>
-        <a class="more" href="https://apps.apple.com/tr/app/katman-bug%C3%BCn-ne-giysem/id6835842857" target="_blank" rel="noopener" data-tr="App Store'dan indir ↗" data-en="Get it on the App Store ↗">App Store'dan indir ↗</a>
-      </figcaption>
-      <details class="detail-more">
-        <summary><span data-tr="Ayrıntı ve ekranlar" data-en="Details and screens">Ayrıntı ve ekranlar</span></summary>
+  <!-- Vitrin: her uygulama aynı kalıpta; çizim, ad, neden, ne yapar, bağlantı. -->
+  <section class="apps" id="uygulamalar">
+    <div class="apps-grid">
+      <article class="app rise" id="katman">
+        <div class="app-art"><canvas data-vig="katman" width="128" height="72" aria-hidden="true"></canvas></div>
+        <div class="app-body">
+          <h2>Katman</h2>
+          <p class="app-why" data-tr="Kapıdan çıkmadan aynı soru: bugün ne giysem?" data-en="Before heading out, the same question: what do I wear today?">Kapıdan çıkmadan aynı soru: bugün ne giysem?</p>
+          <p class="app-say" data-tr="Her sabah tek karar: bugün ne giyeceğin." data-en="One decision every morning: what to wear today.">Her sabah tek karar: bugün ne giyeceğin.</p>
+          <p class="app-foot"><a class="app-link" href="https://apps.apple.com/tr/app/katman-bug%C3%BCn-ne-giysem/id6835842857" target="_blank" rel="noopener" data-tr="App Store'dan indir ↗" data-en="Get it on the App Store ↗">App Store'dan indir ↗</a><span class="app-plat" data-tr="iOS" data-en="iOS">iOS</span></p>
+          <div class="app-more" id="d-katman">
+          <details class="detail-more">
+        <summary><span data-tr="Ekranlar ve ayrıntı" data-en="Screens and details">Ekranlar ve ayrıntı</span></summary>
         <div class="detail-body">
           <div class="detail-text">
           <p class="lede" data-tr="Dışarıda olacağın saatlerin havasına bakıyor ve tek cümle söylüyor. Akşam üşüyüp üşümediğini söyledikçe ne kadar üşüdüğünü öğreniyor. Hesap yok, her şey telefonunda kalıyor." data-en="It reads the forecast for the hours you're outside and gives you one sentence. Each evening you say whether you were cold, and it learns how cold you feel. No account; everything stays on your phone.">Dışarıda olacağın saatlerin havasına bakıyor ve tek cümle söylüyor. Akşam üşüyüp üşümediğini söyledikçe ne kadar üşüdüğünü öğreniyor. Hesap yok, her şey telefonunda kalıyor.</p>
@@ -101,23 +95,19 @@
           <div class="shots"><img class="phone" src="assets/shots/katman-1.jpg" alt="Katman: günün kararı" data-alt-tr="Katman: günün kararı" data-alt-en="Katman: today's decision" width="560" height="1218" loading="lazy" decoding="async"><img class="phone" src="assets/shots/katman-2.jpg" alt="Katman: saat saat hava" data-alt-tr="Katman: saat saat hava" data-alt-en="Katman: the weather hour by hour" width="560" height="1218" loading="lazy" decoding="async"><img class="phone" src="assets/shots/katman-3.jpg" alt="Katman: akşam sorusu" data-alt-tr="Katman: akşam sorusu" data-alt-en="Katman: the evening check-in" width="560" height="1218" loading="lazy" decoding="async"></div>
         </div>
       </details>
-    </figure>
-  </section>
-
-<section class="chapter flip" id="notecook" data-mins="1300">
-        <div class="moment-text rise">
-      <p class="act" data-tr="09:10 · Derste" data-en="09:10 · In class">09:10 · Derste</p>
-      <p class="moment-line" data-tr="iPad'de not alıyorum. Not uygulamaları ise hep aynı, sıkıcı." data-en="I take notes on my iPad. Note apps all feel the same, and dull.">iPad'de not alıyorum. Not uygulamaları ise hep aynı, sıkıcı.</p>
-    </div>
-    <figure class="vig dark rise" id="d-notecook">
-      <canvas data-vig="notecook" width="128" height="72" aria-hidden="true"></canvas>
-      <figcaption>
-        <h2>notecook</h2>
-        <p class="say" data-tr="iPad ve Apple Pencil için el yazısı defteri." data-en="A handwriting notebook for iPad and Apple Pencil.">iPad ve Apple Pencil için el yazısı defteri.</p>
-        <a class="more" href="https://apps.apple.com/tr/app/notecook/id6811676558" target="_blank" rel="noopener" data-tr="App Store'dan indir ↗" data-en="Get it on the App Store ↗">App Store'dan indir ↗</a>
-      </figcaption>
-      <details class="detail-more">
-        <summary><span data-tr="Ayrıntı ve ekranlar" data-en="Details and screens">Ayrıntı ve ekranlar</span></summary>
+          </div>
+        </div>
+      </article>
+      <article class="app rise" id="notecook">
+        <div class="app-art"><canvas data-vig="notecook" width="128" height="72" aria-hidden="true"></canvas></div>
+        <div class="app-body">
+          <h2>notecook</h2>
+          <p class="app-why" data-tr="iPad'de not alıyorum. Not uygulamaları ise hep aynı, sıkıcı." data-en="I take notes on my iPad. Note apps all feel the same, and dull.">iPad'de not alıyorum. Not uygulamaları ise hep aynı, sıkıcı.</p>
+          <p class="app-say" data-tr="iPad ve Apple Pencil için el yazısı defteri." data-en="A handwriting notebook for iPad and Apple Pencil.">iPad ve Apple Pencil için el yazısı defteri.</p>
+          <p class="app-foot"><a class="app-link" href="https://apps.apple.com/tr/app/notecook/id6811676558" target="_blank" rel="noopener" data-tr="App Store'dan indir ↗" data-en="Get it on the App Store ↗">App Store'dan indir ↗</a><span class="app-plat" data-tr="iPadOS" data-en="iPadOS">iPadOS</span></p>
+          <div class="app-more" id="d-notecook">
+          <details class="detail-more">
+        <summary><span data-tr="Ekranlar ve ayrıntı" data-en="Screens and details">Ekranlar ve ayrıntı</span></summary>
         <div class="detail-body">
           <div class="detail-text">
           <p class="lede" data-tr="El yazında arama yapabiliyorsun, PDF'lerin üzerine not alabiliyorsun. Defterler iCloud ile tüm cihazlarında." data-en="Your handwriting becomes searchable, you can write on top of PDFs, and your notebooks sync over iCloud.">El yazında arama yapabiliyorsun, PDF'lerin üzerine not alabiliyorsun. Defterler iCloud ile tüm cihazlarında.</p>
@@ -126,23 +116,19 @@
           <div class="shots"><img class="tablet" src="assets/shots/notecook-light.jpg" alt="notecook: iPad'de defter" data-alt-tr="notecook: iPad'de defter" data-alt-en="notecook: a notebook on iPad" width="1200" height="780" loading="lazy" decoding="async"></div>
         </div>
       </details>
-    </figure>
-  </section>
-
-<section class="chapter" id="plainday" data-mins="1335">
-        <div class="moment-text rise">
-      <p class="act" data-tr="12:40 · Öğle" data-en="12:40 · Midday">12:40 · Öğle</p>
-      <p class="moment-line" data-tr="Telaşın ortasında akla gelen iş, hemen yazılmazsa unutuluyor. Notlar'a yazmak bile zahmetli." data-en="In the rush, a task that isn't written down right away gets forgotten. Even opening Notes feels like a chore.">Telaşın ortasında akla gelen iş, hemen yazılmazsa unutuluyor. Notlar'a yazmak bile zahmetli.</p>
-    </div>
-    <figure class="vig rise" id="d-plainday">
-      <canvas data-vig="plainday" width="128" height="72" aria-hidden="true"></canvas>
-      <figcaption>
-        <h2>plainday</h2>
-        <p class="say" data-tr="Düz bir cümle yaz, görev olsun." data-en="Write one plain sentence, get a task.">Düz bir cümle yaz, görev olsun.</p>
-        <a class="more" href="https://apps.apple.com/tr/app/plainday/id6823780735" target="_blank" rel="noopener" data-tr="App Store'dan indir ↗" data-en="Get it on the App Store ↗">App Store'dan indir ↗</a>
-      </figcaption>
-      <details class="detail-more">
-        <summary><span data-tr="Ayrıntı ve ekranlar" data-en="Details and screens">Ayrıntı ve ekranlar</span></summary>
+          </div>
+        </div>
+      </article>
+      <article class="app rise" id="plainday">
+        <div class="app-art"><canvas data-vig="plainday" width="128" height="72" aria-hidden="true"></canvas></div>
+        <div class="app-body">
+          <h2>plainday</h2>
+          <p class="app-why" data-tr="Telaşın ortasında akla gelen iş, hemen yazılmazsa unutuluyor. Notlar'a yazmak bile zahmetli." data-en="In the rush, a task that isn't written down right away gets forgotten. Even opening Notes feels like a chore.">Telaşın ortasında akla gelen iş, hemen yazılmazsa unutuluyor. Notlar'a yazmak bile zahmetli.</p>
+          <p class="app-say" data-tr="Düz bir cümle yaz, görev olsun." data-en="Write one plain sentence, get a task.">Düz bir cümle yaz, görev olsun.</p>
+          <p class="app-foot"><a class="app-link" href="https://apps.apple.com/tr/app/plainday/id6823780735" target="_blank" rel="noopener" data-tr="App Store'dan indir ↗" data-en="Get it on the App Store ↗">App Store'dan indir ↗</a><span class="app-plat" data-tr="iOS" data-en="iOS">iOS</span></p>
+          <div class="app-more" id="d-plainday">
+          <details class="detail-more">
+        <summary><span data-tr="Ekranlar ve ayrıntı" data-en="Screens and details">Ekranlar ve ayrıntı</span></summary>
         <div class="detail-body">
           <div class="detail-text">
           <p class="lede" data-tr="Türkçe ve İngilizce cümleleri anlayan gün planlayıcı. Widget, alarm ve Siri desteği var." data-en="A day planner that understands plain Turkish and English sentences. Widgets, alarms and Siri.">Türkçe ve İngilizce cümleleri anlayan gün planlayıcı. Widget, alarm ve Siri desteği var.</p>
@@ -162,23 +148,19 @@
           <div class="shots"><img class="phone" src="assets/shots/plainday-tr-1.jpg" data-src-tr="assets/shots/plainday-tr-1.jpg" data-src-en="assets/shots/plainday-en-1.jpg" alt="plainday: gün listesi" data-alt-tr="plainday: gün listesi" data-alt-en="plainday: the day list" width="560" height="1218" loading="lazy" decoding="async"><img class="phone" src="assets/shots/plainday-tr-2.jpg" data-src-tr="assets/shots/plainday-tr-2.jpg" data-src-en="assets/shots/plainday-en-2.jpg" alt="plainday: cümleden görev" data-alt-tr="plainday: cümleden görev" data-alt-en="plainday: a sentence becomes a task" width="560" height="1218" loading="lazy" decoding="async"><img class="phone" src="assets/shots/plainday-tr-dark.jpg" data-src-tr="assets/shots/plainday-tr-dark.jpg" data-src-en="assets/shots/plainday-en-dark.jpg" alt="plainday: koyu tema" data-alt-tr="plainday: koyu tema" data-alt-en="plainday: dark theme" width="560" height="1218" loading="lazy" decoding="async"></div>
         </div>
       </details>
-    </figure>
-  </section>
-
-<section class="chapter flip" id="milyonda" data-mins="1370">
-        <div class="moment-text rise">
-      <p class="act" data-tr="15:00 · Ara" data-en="15:00 · A break">15:00 · Ara</p>
-      <p class="moment-line" data-tr="Bir hayat simülasyonu oynuyorum ve neredeyse her seferinde çok uzak bir ülkede doğuyorum. Kendi hayatımıza benzeyenleri görmek istiyorum." data-en="I'm playing a life simulator and almost every time I'm born somewhere far away. I want to see lives closer to ours.">Bir hayat simülasyonu oynuyorum ve neredeyse her seferinde çok uzak bir ülkede doğuyorum. Kendi hayatımıza benzeyenleri görmek istiyorum.</p>
-    </div>
-    <figure class="vig dark rise" id="d-milyonda">
-      <canvas data-vig="milyonda" width="128" height="72" aria-hidden="true"></canvas>
-      <figcaption>
-        <h2>85 Milyonda 1</h2>
-        <p class="say" data-tr="Türkiye'nin gerçek istatistiklerine dayanan bir hayat simülasyonu." data-en="A life simulation built on Turkey's real statistics.">Türkiye'nin gerçek istatistiklerine dayanan bir hayat simülasyonu.</p>
-        <a class="more" href="https://85milyondabir.com.tr" target="_blank" rel="noopener" data-tr="Bir hayat yaşa ↗" data-en="Live a life ↗">Bir hayat yaşa ↗</a>
-      </figcaption>
-      <details class="detail-more">
-        <summary><span data-tr="Ayrıntı ve ekranlar" data-en="Details and screens">Ayrıntı ve ekranlar</span></summary>
+          </div>
+        </div>
+      </article>
+      <article class="app rise" id="milyonda">
+        <div class="app-art"><canvas data-vig="milyonda" width="128" height="72" aria-hidden="true"></canvas></div>
+        <div class="app-body">
+          <h2>85 Milyonda 1</h2>
+          <p class="app-why" data-tr="Bir hayat simülasyonu oynuyorum ve neredeyse her seferinde çok uzak bir ülkede doğuyorum. Kendi hayatımıza benzeyenleri görmek istiyorum." data-en="I'm playing a life simulator and almost every time I'm born somewhere far away. I want to see lives closer to ours.">Bir hayat simülasyonu oynuyorum ve neredeyse her seferinde çok uzak bir ülkede doğuyorum. Kendi hayatımıza benzeyenleri görmek istiyorum.</p>
+          <p class="app-say" data-tr="Türkiye'nin gerçek istatistiklerine dayanan bir hayat simülasyonu." data-en="A life simulation built on Turkey's real statistics.">Türkiye'nin gerçek istatistiklerine dayanan bir hayat simülasyonu.</p>
+          <p class="app-foot"><a class="app-link" href="https://85milyondabir.com.tr" target="_blank" rel="noopener" data-tr="Bir hayat yaşa ↗" data-en="Live a life ↗">Bir hayat yaşa ↗</a><span class="app-plat" data-tr="Web" data-en="Web">Web</span></p>
+          <div class="app-more" id="d-milyonda">
+          <details class="detail-more">
+        <summary><span data-tr="Ekranlar ve ayrıntı" data-en="Screens and details">Ekranlar ve ayrıntı</span></summary>
         <div class="detail-body">
           <div class="detail-text">
           <p class="lede" data-tr="TÜİK verisine göre ağırlıklı rastgele bir yerde doğuyorsun, sonra hayatın yıl yıl akıyor. Sonunda paylaşabileceğin bir kart çıkıyor." data-en="You're born at random, weighted by official TÜİK data, then your life unfolds year by year. At the end you get a card to share.">TÜİK verisine göre ağırlıklı rastgele bir yerde doğuyorsun, sonra hayatın yıl yıl akıyor. Sonunda paylaşabileceğin bir kart çıkıyor.</p>
@@ -187,22 +169,18 @@
           <div class="shots"><img class="card" src="assets/shots/85-card-1.jpg" alt="85 Milyonda 1: bir hayat kartı" data-alt-tr="85 Milyonda 1: bir hayat kartı" data-alt-en="85 Milyonda 1: a life card" width="720" height="660" loading="lazy" decoding="async"><img class="card" src="assets/shots/85-card-2.jpg" alt="85 Milyonda 1: başka bir hayat" data-alt-tr="85 Milyonda 1: başka bir hayat" data-alt-en="85 Milyonda 1: another life" width="720" height="660" loading="lazy" decoding="async"></div>
         </div>
       </details>
-    </figure>
-  </section>
-
-<section class="chapter" id="fiziyoo" data-mins="1405">
-        <div class="moment-text rise">
-      <p class="act" data-tr="17:00 · Klinikte" data-en="17:00 · At the clinic">17:00 · Klinikte</p>
-      <p class="moment-line" data-tr="Babam fizyoterapist, küçüklüğümden beri yanında çalışıyorum." data-en="My dad is a physiotherapist, and I've worked alongside him since I was a kid.">Babam fizyoterapist, küçüklüğümden beri yanında çalışıyorum.</p>
-    </div>
-    <figure class="vig dark rise" id="d-fiziyoo">
-      <canvas data-vig="fiziyoo" width="128" height="72" aria-hidden="true"></canvas>
-      <figcaption>
-        <h2>Fiziyoo</h2>
-        <p class="say" data-tr="Fizyoterapistler için klinik uygulaması." data-en="A clinic app for physiotherapists.">Fizyoterapistler için klinik uygulaması.</p>
-        <span class="more static" data-tr="Yapım aşamasında" data-en="In development">Yapım aşamasında</span>
-      </figcaption>
-      <details class="detail-more">
+          </div>
+        </div>
+      </article>
+      <article class="app rise" id="fiziyoo">
+        <div class="app-art"><canvas data-vig="fiziyoo" width="128" height="72" aria-hidden="true"></canvas></div>
+        <div class="app-body">
+          <h2>Fiziyoo</h2>
+          <p class="app-why" data-tr="Babam fizyoterapist, küçüklüğümden beri yanında çalışıyorum." data-en="My dad is a physiotherapist, and I've worked alongside him since I was a kid.">Babam fizyoterapist, küçüklüğümden beri yanında çalışıyorum.</p>
+          <p class="app-say" data-tr="Fizyoterapistler için klinik uygulaması." data-en="A clinic app for physiotherapists.">Fizyoterapistler için klinik uygulaması.</p>
+          <p class="app-foot"><span class="app-link static" data-tr="Yapım aşamasında" data-en="In development">Yapım aşamasında</span><span class="app-plat" data-tr="iOS" data-en="iOS">iOS</span></p>
+          <div class="app-more" id="d-fiziyoo">
+          <details class="detail-more">
         <summary><span data-tr="Ayrıntı" data-en="Details">Ayrıntı</span></summary>
         <div class="detail-body">
           <div class="detail-text">
@@ -217,23 +195,19 @@
           
         </div>
       </details>
-    </figure>
-  </section>
-
-<section class="chapter flip" id="sweetspot" data-mins="1440">
-        <div class="moment-text rise">
-      <p class="act" data-tr="18:00 · Gün batımı" data-en="18:00 · Sunset">18:00 · Gün batımı</p>
-      <p class="moment-line" data-tr="Şehrin gürültüsünden kaçıp sakin, manzaralı bir yer bulduk. Bir dahaki sefere de bulabilmek için işaretlemek istiyorum." data-en="We got away from the city noise and found a quiet spot with a view. I want to mark it so we can find it again.">Şehrin gürültüsünden kaçıp sakin, manzaralı bir yer bulduk. Bir dahaki sefere de bulabilmek için işaretlemek istiyorum.</p>
-    </div>
-    <figure class="vig rise" id="d-sweetspot">
-      <canvas data-vig="sweetspot" width="128" height="72" aria-hidden="true"></canvas>
-      <figcaption>
-        <h2>SweetSpot</h2>
-        <p class="say" data-tr="Sakin, az bilinen yerlerin haritası." data-en="A map of quiet, little-known places.">Sakin, az bilinen yerlerin haritası.</p>
-        <a class="more" href="https://apps.apple.com/tr/app/sweetspot-sakl%C4%B1-yerler/id6824031187" target="_blank" rel="noopener" data-tr="App Store'dan indir ↗" data-en="Get it on the App Store ↗">App Store'dan indir ↗</a>
-      </figcaption>
-      <details class="detail-more">
-        <summary><span data-tr="Ayrıntı ve ekranlar" data-en="Details and screens">Ayrıntı ve ekranlar</span></summary>
+          </div>
+        </div>
+      </article>
+      <article class="app rise" id="sweetspot">
+        <div class="app-art"><canvas data-vig="sweetspot" width="128" height="72" aria-hidden="true"></canvas></div>
+        <div class="app-body">
+          <h2>SweetSpot</h2>
+          <p class="app-why" data-tr="Şehrin gürültüsünden kaçıp sakin, manzaralı bir yer bulduk. Bir dahaki sefere de bulabilmek için işaretlemek istiyorum." data-en="We got away from the city noise and found a quiet spot with a view. I want to mark it so we can find it again.">Şehrin gürültüsünden kaçıp sakin, manzaralı bir yer bulduk. Bir dahaki sefere de bulabilmek için işaretlemek istiyorum.</p>
+          <p class="app-say" data-tr="Sakin, az bilinen yerlerin haritası." data-en="A map of quiet, little-known places.">Sakin, az bilinen yerlerin haritası.</p>
+          <p class="app-foot"><a class="app-link" href="https://apps.apple.com/tr/app/sweetspot-sakl%C4%B1-yerler/id6824031187" target="_blank" rel="noopener" data-tr="App Store'dan indir ↗" data-en="Get it on the App Store ↗">App Store'dan indir ↗</a><span class="app-plat" data-tr="iOS" data-en="iOS">iOS</span></p>
+          <div class="app-more" id="d-sweetspot">
+          <details class="detail-more">
+        <summary><span data-tr="Ekranlar ve ayrıntı" data-en="Screens and details">Ekranlar ve ayrıntı</span></summary>
         <div class="detail-body">
           <div class="detail-text">
           <p class="sub">Saklı Yerler</p>
@@ -243,23 +217,19 @@
           <div class="shots"><img class="phone" src="assets/shots/sweetspot-map.jpg" alt="SweetSpot: harita" data-alt-tr="SweetSpot: harita" data-alt-en="SweetSpot: the map" width="560" height="1217" loading="lazy" decoding="async"><img class="phone" src="assets/shots/sweetspot-feed.jpg" alt="SweetSpot: akış" data-alt-tr="SweetSpot: akış" data-alt-en="SweetSpot: the feed" width="560" height="1217" loading="lazy" decoding="async"><img class="phone" src="assets/shots/sweetspot-detail.jpg" alt="SweetSpot: bir yerin sayfası" data-alt-tr="SweetSpot: bir yerin sayfası" data-alt-en="SweetSpot: a place's page" width="560" height="1217" loading="lazy" decoding="async"></div>
         </div>
       </details>
-    </figure>
-  </section>
-
-<section class="chapter" id="here" data-mins="1475">
-        <div class="moment-text rise">
-      <p class="act" data-tr="19:50 · Kafe" data-en="19:50 · Café">19:50 · Kafe</p>
-      <p class="moment-line" data-tr="Her gün aynı kafedeyiz ama yan masayla hiç konuşmuyoruz." data-en="We're at the same café every day, yet we never talk to the next table.">Her gün aynı kafedeyiz ama yan masayla hiç konuşmuyoruz.</p>
-    </div>
-    <figure class="vig dark rise" id="d-here">
-      <canvas data-vig="here" width="128" height="72" aria-hidden="true"></canvas>
-      <figcaption>
-        <h2>here.</h2>
-        <p class="say" data-tr="Aynı mekândaki insanları anında gör ve tanış." data-en="See who's at the same venue right now and meet them.">Aynı mekândaki insanları anında gör ve tanış.</p>
-        <a class="more" href="https://apps.apple.com/tr/app/here/id6767262061" target="_blank" rel="noopener" data-tr="App Store'dan indir ↗" data-en="Get it on the App Store ↗">App Store'dan indir ↗</a>
-      </figcaption>
-      <details class="detail-more">
-        <summary><span data-tr="Ayrıntı ve ekranlar" data-en="Details and screens">Ayrıntı ve ekranlar</span></summary>
+          </div>
+        </div>
+      </article>
+      <article class="app rise" id="here">
+        <div class="app-art"><canvas data-vig="here" width="128" height="72" aria-hidden="true"></canvas></div>
+        <div class="app-body">
+          <h2>here.</h2>
+          <p class="app-why" data-tr="Her gün aynı kafedeyiz ama yan masayla hiç konuşmuyoruz." data-en="We're at the same café every day, yet we never talk to the next table.">Her gün aynı kafedeyiz ama yan masayla hiç konuşmuyoruz.</p>
+          <p class="app-say" data-tr="Aynı mekândaki insanları anında gör ve tanış." data-en="See who's at the same venue right now and meet them.">Aynı mekândaki insanları anında gör ve tanış.</p>
+          <p class="app-foot"><a class="app-link" href="https://apps.apple.com/tr/app/here/id6767262061" target="_blank" rel="noopener" data-tr="App Store'dan indir ↗" data-en="Get it on the App Store ↗">App Store'dan indir ↗</a><span class="app-plat" data-tr="iOS" data-en="iOS">iOS</span></p>
+          <div class="app-more" id="d-here">
+          <details class="detail-more">
+        <summary><span data-tr="Ekranlar ve ayrıntı" data-en="Screens and details">Ekranlar ve ayrıntı</span></summary>
         <div class="detail-body">
           <div class="detail-text">
           <p class="lede" data-tr="AVM ve kampüsler için çokgen konum sınırlarıyla çalışıyor. Konya'da gerçek mekânlarda test edildi." data-en="It works with polygon location boundaries for malls and campuses, and it was tested in real venues in Konya.">AVM ve kampüsler için çokgen konum sınırlarıyla çalışıyor. Konya'da gerçek mekânlarda test edildi.</p>
@@ -268,7 +238,10 @@
           <div class="shots"><img class="phone" src="assets/shots/here-venues.jpg" alt="here.: mekânlar" data-alt-tr="here.: mekânlar" data-alt-en="here.: venues" width="460" height="992" loading="lazy" decoding="async"><img class="phone" src="assets/shots/here-chat.jpg" alt="here.: sohbet" data-alt-tr="here.: sohbet" data-alt-en="here.: chat" width="460" height="992" loading="lazy" decoding="async"></div>
         </div>
       </details>
-    </figure>
+          </div>
+        </div>
+      </article>
+    </div>
   </section>
 
   <!-- Late night: how I work + contact -->
@@ -295,9 +268,8 @@
 
 <footer class="foot"><span>© 2026 Kerem Şahin</span><a href="mailto:subatcontact@gmail.com">subatcontact@gmail.com</a></footer>
 
-<script src="pixel.js?v=px28"></script>
-<script src="sky.js?v=px28"></script>
-<script src="doruk.js?v=px28"></script>
-<script src="page.js?v=px28"></script>
+<script src="pixel.js?v=px29"></script>
+<script src="sky.js?v=px29"></script>
+<script src="page.js?v=px29"></script>
 </body>
 </html>

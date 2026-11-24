@@ -277,7 +277,8 @@ window.PX = (() => {
     for (let j = 0; j <= hs; j++) bm.rect(hxp - hs - 1 + j, hyp - hs * 2 - j, (hs + 1 - j) * 2 + 1, 1, roof);
     bm.rect(hxp - 1, hyp - hs, 2, 2, n > .3 ? C.warm : mix(wall, C.ink, .3));
 
-    if (o.av && AV && o.av.vis > .01) drawAvatar(bm, m, o.av, sunX, sunUp, elev, n, t);
+    // avatar yokken de lamba direği yerinde kalabilsin
+    if (o.av && AV && (o.av.vis > .01 || (o.av.lampVis ?? 0) > .01)) drawAvatar(bm, m, o.av, sunX, sunUp, elev, n, t);
   }
 
   const OUT = [0, 0, 0];
@@ -287,7 +288,7 @@ window.PX = (() => {
     const cxA = ax + AV.w / 2;
     const show = (X, Y) => vis >= 1 || vis > thr(X + 2, Y + 1); // damalı belirme/kaybolma
     // Sokak lambası: direk gün boyu yerinde; ışığı akşam yanar, sabah söner.
-    const lampOn = lampOnAt(m), lampVis = vis;
+    const lampOn = lampOnAt(m), lampVis = av.lampVis ?? vis; // avatar eve girerken lamba yerinde kalır
     const lampX = ax + AV.w + Math.round(AV.w * .3), lampTop = footY - Math.round(AV.h * 1.12);
     const hx = lampX - 5, hy = lampTop + 3;
     if (lampOn > .02 && lampVis > .02){

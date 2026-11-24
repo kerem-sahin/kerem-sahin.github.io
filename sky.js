@@ -2,7 +2,7 @@
    Çizimin tamamı pixel.js'te; burası sadece saati, açılış penceresini ve döngüyü yönetir. */
 (() => {
   "use strict";
-  const { RM, clamp, lerp, smooth } = PX;
+  const { RM, clamp, lerp, smooth, hex, thr } = PX;
   const canvas = document.getElementById("sky");
   const ctx = canvas.getContext("2d", { alpha: false });
   const easeInOut = (t) => { t = clamp(t); return t < 0.5 ? 4 * t * t * t : 1 - Math.pow(-2 * t + 2, 3) / 2; };
@@ -62,17 +62,32 @@
     const openH = h * (mobile ? 0.72 : 0.68);
     const winBottomY = h - win.bottom, winH = h - win.top - win.bottom, winCX = win.left + (w - win.left - win.right) / 2;
     const horizonY = lerp(winBottomY - winH * 0.24, openH, openAmt);
-    // Gündüz boyunca sahnede (anlar onun günü); gece uygulamalar çıkınca çekilir, gece yarısı lambanın altına döner.
-    const vis = Math.max(1 - smooth(1236, 1252, m), smooth(1495, 1525, m));
+    // Avatar gün boyu sahnede. Doruk sahnesinde (doruk.js) eve girer; gece uygulamalar boyunca yoktur,
+    // gece yarısı lambanın altına döner. Lamba direği avatar giderken yerinde kalır.
+    const D = window.__doruk;
+    let vis = 1, lampVis = 1;
+    if (D && D.state === "during") vis = D.vis;
+    else if (D && D.state === "after") vis = smooth(1495, 1525, m); // lamba gece boyu yerinde kalır
     const ax = lerp(winCX + (w - win.left - win.right) * (mobile ? 0.18 : 0.22), w * (mobile ? 0.7 : 0.8), openAmt);
     const feet = lerp(winBottomY - winH * 0.05, h * (mobile ? 0.95 : 0.93), openAmt);
     const AV = PX.AV, avCol = ax / P;
     PX.drawWorld(bm, m, {
       hz: horizonY / P, t,
       sunL: mobile ? 0.5 : 0.56, sunR: mobile ? 0.8 : 0.88, moonX: mobile ? 0.3 : 0.62, houseX: mobile ? 0.2 : 0.4,
-      av: AV ? { x: avCol, feet: feet / P, vis } : null,
+      av: AV ? { x: avCol, feet: feet / P, vis, lampVis } : null,
       clear: AV ? [avCol - AV.w, avCol + AV.w * 1.6] : null,
     });
+    // Uzaktaki evin penceresi: doruk sahnesi buraya yakınlaşır (konumu doruk.js'e bildirilir).
+    const hz = Math.round(horizonY / P), u = bm.h / 150, hs = Math.max(3, Math.round(u * 3));
+    const winX = Math.round(bm.w * (mobile ? 0.2 : 0.4)), winY = hz + Math.round(u * 2) - hs + 1;
+    window.__skyWin = { x: winX * P, y: winY * P, half: P };
+    if (D && D.state !== "before") {
+      if (D.glow > 0) {
+        const R = Math.round(4 * u);
+        for (let y = -R; y <= R; y++) for (let x = -R; x <= R; x++) { const r = Math.hypot(x, y) / R; if (r < 1 && (1 - r) * 0.8 * D.glow > thr(winX + x, winY + y)) bm.tint(winX + x, winY + y, hex("#ffd08a"), 0.35); }
+      }
+      if (D.lit) bm.rect(winX - 1, winY - 1, 2, 2, hex("#ffe2a6"));
+    }
     bm.blit(ctx);
   }
 

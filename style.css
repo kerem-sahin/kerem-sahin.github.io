@@ -21,8 +21,6 @@ main, .foot { position: relative; z-index: 1; }
 
 /* Üst şerit */
 html[data-open="false"] .nav { color: var(--ink); background: none; }
-html[data-sheet="true"] .nav { color: var(--ink); background: rgba(246, 242, 234, .94); }
-html[data-sheet="true"] .lang { border-color: var(--line); background: #fff; }
 html[data-open="false"] .hud { opacity: 0; }
 html[data-open="false"] .lang { border-color: var(--line); background: rgba(255, 255, 255, .5); }
 .nav { position: fixed; transition: color .4s ease; top: 0; left: 0; right: 0; z-index: 5; display: flex; align-items: center; gap: 16px;
@@ -132,54 +130,40 @@ html[data-open="false"] .lang { border-color: var(--line); background: rgba(255,
 .interlude-text { display: grid; gap: 14px; max-width: min(620px, 100%); color: #FBF7EF; text-shadow: 3px 3px 0 rgba(10, 12, 30, .35); }
 .interlude-text .act { color: rgba(251, 247, 239, .92); }
 .interlude-text h2 { margin: 0; font: 600 clamp(40px, 6vw, 84px)/.98 var(--sans); letter-spacing: -.05em; }
-.interlude-text p:last-child { margin: 0; font-size: clamp(16px, 1.6vw, 20px); line-height: 1.45; color: rgba(251, 247, 239, .88); }
+.interlude-text p:last-child { margin: 0; font-size: clamp(16px, 1.6vw, 20px); line-height: 1.45; color: rgba(251, 247, 239, .94); text-shadow: 2px 2px 0 rgba(10, 12, 30, .45), 0 0 14px rgba(10, 12, 30, .4); }
+.morning .interlude-text p:last-child { color: var(--ink); text-shadow: none; }
 
-.morning { padding: 30vh var(--gutter) 10vh; }
-/* Ertesi sabah: her uygulama kendi kâğıdında; aralarından sabah görünür. */
-.sheet { max-width: 1180px; margin: 0 auto; display: grid; gap: clamp(16px, 2.2vw, 26px); }
-.sheet-head, .detail { --pad: clamp(22px, 3.4vw, 44px); background: var(--paper); border-radius: 6px; box-shadow: var(--shadow); padding: var(--pad); }
-.sheet-head { margin-bottom: clamp(4px, 1vw, 12px); }
-.sheet-head { display: grid; gap: 12px; }
-.sheet-head > * { max-width: 52ch; }
-.sheet-head .act { color: var(--muted); }
-.sheet-head h2 { margin: 0; font: 600 clamp(40px, 5.4vw, 72px)/.95 var(--sans); letter-spacing: -.05em; }
-.sheet-head p:last-child { margin: 0; color: var(--sub); }
-/* Her uygulama kısa bir satır; ayrıntı ve ekranlar dokununca açılır (telefonda sayfa kısa kalsın). */
-/* Her kart: o günün çizimi köşeye iliştirilmiş bir polaroid, yanında sabah yazılmış not. */
-.detail { scroll-margin-top: 80px; display: grid; grid-template-columns: 272px minmax(0, 1fr); column-gap: clamp(24px, 3.4vw, 48px); align-items: start; }
-.pin { margin: 0; grid-column: 1; grid-row: 1; padding: 8px; background: #FBF8F2; border-radius: 4px; width: 272px; margin: calc(-1 * var(--pad) - 12px) 0 0 calc(-1 * var(--pad) - 10px);
-  box-shadow: 0 0 0 1px var(--line), 5px 5px 0 rgba(12, 14, 26, .2); }
-.pin canvas { display: block; image-rendering: pixelated; image-rendering: crisp-edges; border-radius: 2px; }
-.pin.dark { background: var(--night); box-shadow: 0 0 0 1px rgba(237, 232, 221, .14), 5px 5px 0 rgba(12, 14, 26, .3); }
-.detail > .detail-head { grid-column: 2; grid-row: 1; }
-.detail > .detail-more { grid-column: 2; margin-top: 18px; }
-.detail .detail-body { grid-template-columns: minmax(0, 1fr); }
-.detail-head { display: grid; justify-items: start; gap: 10px; max-width: 60ch; }
-.detail-head .hour { margin: 0; }
-.detail-head .id { gap: 14px; }
-.detail-head .icon { width: 48px; height: 48px; border-radius: 11px; }
-.detail-head h2 { margin: 0 0 4px; font-size: clamp(28px, 2.6vw, 34px); }
-.detail-head .sub { margin: 0 !important; font-size: 15px !important; }
-.detail-head .say { margin: 6px 0 0; font: 600 clamp(20px, 1.9vw, 24px)/1.25 var(--sans); letter-spacing: -.025em; color: var(--ink); }
-.detail-head .lede { margin: 0; color: var(--sub); }
-.detail-head .cta { margin-top: 6px; }
-.detail-more { margin-top: 14px; }
+/* Ertesi sabah: kısa son. Gün bir tur attı. */
+.morning { min-height: 100vh; display: grid; align-items: center; padding: 0 var(--gutter); }
+.again { font: 500 14px/1 var(--mono); color: inherit; text-decoration: none; border-bottom: 1px solid currentColor; padding-bottom: 3px; }
+.again:hover { opacity: .8; }
+/* Sabah gökyüzü açık: yazı mürekkep rengi, gölgesiz. */
+.morning .interlude-text { color: var(--ink); text-shadow: 0 0 18px rgba(246, 242, 234, .7); }
+.morning .interlude-text .act { color: var(--sub); }
+
+/* Ayrıntı: çizimin altında kapalı gelir, dokununca polaroidin içinde açılır. */
+.vig .detail-more { margin: 2px 8px 6px; }
 .detail-more summary { list-style: none; cursor: pointer; display: inline-flex; align-items: center; gap: 10px; font: 500 12.5px/1 var(--mono); color: var(--ink); padding: 10px 12px; border: 1px solid var(--line); border-radius: 4px; }
 .detail-more summary::-webkit-details-marker { display: none; }
 .detail-more summary::after { content: "+"; font-size: 15px; line-height: 1; }
 .detail-more[open] summary::after { content: "−"; }
 .detail-more summary:hover { border-color: var(--ink); }
-.detail-body { display: grid; grid-template-columns: minmax(0, 420px) minmax(0, 1fr); gap: clamp(24px, 4vw, 48px); align-items: start; padding: 20px 0 8px; }
-.detail-body:not(:has(.shots)) { grid-template-columns: minmax(0, 620px); }
-.detail-text { display: grid; gap: 14px; }
-.detail-text .back { justify-self: start; font: 500 12.5px/1 var(--mono); color: var(--muted); text-decoration: none; }
-.detail-text .back:hover { color: var(--ink); }
+.detail-body { display: grid; grid-template-columns: minmax(0, 1fr); gap: 22px; padding: 18px 0 6px; }
+.detail-text { display: grid; gap: 14px; max-width: 62ch; }
+.detail-text .sub { margin: 0 !important; font: 500 12px/1 var(--mono) !important; letter-spacing: .08em; text-transform: uppercase; }
+.vig .more.static { color: var(--muted); border-style: dashed; }
+/* Gece polaroidlerinde ayrıntı koyu zeminde okunur. */
+.vig.dark .detail-more summary { color: var(--on-night); border-color: rgba(237, 232, 221, .25); }
+.vig.dark .detail-more summary:hover { border-color: var(--on-night); }
+.vig.dark .detail-text p { color: var(--on-night-sub); }
+.vig.dark .origin { color: var(--on-night-sub) !important; border-left-color: var(--on-night); }
+.vig.dark .stack, .vig.dark .detail-text .sub { color: rgba(237, 232, 221, .5) !important; }
+.vig.dark .more.static { color: rgba(237, 232, 221, .6); }
 .shots { display: flex; gap: 16px; overflow-x: auto; scroll-snap-type: x mandatory; padding: 2px 8px 10px 2px; scrollbar-width: thin; }
 .shots img { flex: none; width: auto; scroll-snap-align: start; border-radius: 14px; box-shadow: 0 0 0 1px var(--line), 4px 4px 0 rgba(12, 14, 26, .12); background: var(--paper-2); }
 .shots .phone { height: clamp(300px, 34vw, 440px); }
 .shots .tablet { height: clamp(220px, 24vw, 320px); border-radius: 12px; }
 .shots .card { height: clamp(220px, 22vw, 300px); border-radius: 8px; }
-.sheet-note-unused { margin: 0; padding-top: 22px; border-top: 1px solid var(--line); font: 500 13px/1.5 var(--mono); color: var(--muted); }
 .foot { display: flex; flex-wrap: wrap; gap: 10px 26px; color: var(--sub) !important; background: var(--paper); border-top: 1px solid var(--line); }
 .foot a { text-decoration: none; color: var(--ink); }
 .foot a:hover { text-decoration: underline; }
@@ -197,8 +181,6 @@ html[data-open="false"] .lang { border-color: var(--line); background: rgba(255,
   .dawn-copy { top: 16vh; }
   .chapter, .chapter.flip { grid-template-columns: minmax(0, 1fr); min-height: 0; padding-top: 44px; padding-bottom: 44px; }
   .opening { height: 190vh; }
-  .morning { padding-top: 16vh; padding-bottom: 6vh; }
-  .sheet-head, .detail { --pad: 20px; padding: 22px 18px; }
   .chapter .vig, .chapter.flip .vig { grid-column: auto; justify-self: stretch; width: 100%; margin: 0; }
   .vig figcaption { grid-template-columns: minmax(0, 1fr); }
   .vig .more { grid-column: 1; grid-row: auto; justify-self: start; margin-top: 8px; }
@@ -206,16 +188,9 @@ html[data-open="false"] .lang { border-color: var(--line); background: rgba(255,
 }
 @media (max-width: 860px) {
   .detail-body { grid-template-columns: minmax(0, 1fr); }
-  .shots { margin-right: -18px; }
+  .shots { margin-right: -10px; }
   .interlude { min-height: 70vh; }
 }
 @media (max-width: 420px) { .dawn-line { max-width: 13ch; font-size: 28px; } }
 @media (max-width: 520px) { .hud { display: none; } .lang { margin-left: auto; } }
 .invite { margin: 0; font-size: clamp(17px, 1.6vw, 20px); color: var(--on-night); }
-/* Dar ekran: çizim üstte, yazı altında. 640px üstünde yan yana kalır. */
-@media (max-width: 640px) {
-  .detail { grid-template-columns: minmax(0, 1fr); }
-  .detail > .detail-head { grid-column: 1; grid-row: 2; margin-top: 16px; }
-  .detail > .detail-more { grid-column: 1; }
-  .pin { width: min(100%, 232px); padding: 6px; margin: calc(-1 * var(--pad) - 12px) 0 0 -6px; }
-}

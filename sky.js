@@ -138,17 +138,6 @@
   // ── DÖNGÜ ──────────────────────────────────────────────────
   // Kaydırırken her karede çizer; sayfa dururken saniyede 4 kare (yıldız, bulut, kuş yavaşça yaşar).
   let raf = 0, idle = 0, activeUntil = 0, lastNow = 0, lastDraw = -1e9;
-  // Ertesi sabah kâğıdı ekranı tamamen kaplayınca gökyüzü görünmez: çizme, pil harcama.
-  // Kâğıt üst şeridin altına girince şerit koyu yazıya geçer.
-  const sheetEl = document.querySelector(".sheet");
-  let covered = false;
-  function checkSheet() {
-    if (!sheetEl) return;
-    const r = sheetEl.getBoundingClientRect();
-    covered = r.top <= 0 && r.bottom >= window.innerHeight;
-    const under = r.top <= 56 && r.bottom > 56 && r.left < 200;
-    if (docEl.dataset.sheet !== String(under)) docEl.dataset.sheet = String(under);
-  }
   function wake(ms = 900) {
     activeUntil = Math.max(activeUntil, performance.now() + ms);
     clearTimeout(idle); idle = 0;
@@ -162,14 +151,13 @@
     curMins += (targetMins - curMins) * k;
     if (Math.abs(targetMins - curMins) < 0.05) curMins = targetMins;
     updateOpening();
-    checkSheet();
     // Telefonda gökyüzü saniyede en fazla ~30 kez çizilir; gözle fark edilmiyor, işlemciye nefes aldırıyor.
     const minGap = vw < 760 ? 30 : 0;
-    if (!covered && now - lastDraw >= minGap) { drawScene(curMins, now); lastDraw = now; }
+    if (now - lastDraw >= minGap) { drawScene(curMins, now); lastDraw = now; }
     updateHud(curMins);
     const settling = Math.abs(targetMins - curMins) > 0.05;
     if (settling || now < activeUntil) raf = requestAnimationFrame(tick);
-    else if (!RM && !document.hidden && !covered) idle = setTimeout(() => { idle = 0; lastNow = 0; if (!raf) raf = requestAnimationFrame(tick); }, 250);
+    else if (!RM && !document.hidden) idle = setTimeout(() => { idle = 0; lastNow = 0; if (!raf) raf = requestAnimationFrame(tick); }, 250);
   }
 
   window.addEventListener("scroll", () => { targetMins = minsAtScroll(window.scrollY); wake(); }, { passive: true });

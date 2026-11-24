@@ -26,8 +26,8 @@ html[data-open="false"] .lang { border-color: var(--line); background: rgba(255,
 .nav { position: fixed; transition: color .4s ease; top: 0; left: 0; right: 0; z-index: 5; display: flex; align-items: center; gap: 16px;
   padding: calc(14px + env(safe-area-inset-top, 0px)) var(--gutter) 14px; color: #F4F1EA;
   background: linear-gradient(to bottom, rgba(8, 10, 20, .3), rgba(8, 10, 20, 0)); }
-.brand { font: 500 15px/1 var(--sans); text-decoration: none; letter-spacing: -.01em; }
-.hud { margin-left: auto; font: 500 12px/1 var(--mono); letter-spacing: .08em; opacity: .9; font-variant-numeric: tabular-nums; }
+.brand { font: 500 15px/1 var(--sans); text-decoration: none; letter-spacing: -.01em; display: inline-block; padding: 13px 0; margin: -13px 0; }
+.hud { margin-left: auto; margin-right: 6px; font: 500 12px/1 var(--mono); letter-spacing: .08em; opacity: .9; font-variant-numeric: tabular-nums; }
 .lang { font: 500 12px/1 var(--mono); letter-spacing: .06em; color: inherit; background: rgba(255, 255, 255, .08); border: 1px solid rgba(255, 255, 255, .35); border-radius: 4px; padding: 11px 14px; cursor: pointer; }
 
 /* Açılış: kâğıt bir duvarda küçük bir pencere; kaydırdıkça bütün güne açılır. */
@@ -36,7 +36,7 @@ html[data-open="false"] .lang { border-color: var(--line); background: rgba(255,
 .win-frame { position: absolute; top: var(--win-top, 20vh); left: var(--win-left, 30vw); width: var(--win-w, 40vw); height: var(--win-h, 50vh);
   border-radius: var(--win-r, 6px); opacity: var(--frame, 1); pointer-events: none;
   box-shadow: 0 0 0 1px rgba(28, 27, 25, .18), 8px 8px 0 rgba(28, 27, 25, .12); }
-.opening-caption { position: absolute; left: 0; right: 0; top: var(--caption-top, 72vh); display: grid; justify-items: center; gap: 12px; padding: 0 20px; text-align: center;
+.opening-caption { position: absolute; left: var(--cap-l, 0px); right: var(--cap-r, 0px); top: var(--caption-top, 72vh); display: grid; justify-items: center; gap: 12px; padding: 0 20px; text-align: center;
   opacity: var(--caption, 1); transform: translateY(calc((1 - var(--caption, 1)) * 16px)); }
 .opening-caption h1 { margin: 0; font: 600 clamp(34px, 4.4vw, 52px)/1 var(--sans); letter-spacing: -.045em; color: var(--ink); }
 .lead { margin: 0; font-size: clamp(15.5px, 1.5vw, 18px); line-height: 1.45; max-width: 38ch; color: var(--sub); }
@@ -96,14 +96,14 @@ html[data-open="false"] .lang { border-color: var(--line); background: rgba(255,
 .try-out span:last-child { font: 500 13px/1.3 var(--mono); color: var(--sub); }
 .check { width: 14px; height: 14px; border-radius: 2px; border: 2px solid var(--ink); align-self: center; }
 .try-presets { display: flex; flex-wrap: wrap; gap: 6px; }
-.try-presets button { font: 500 12.5px/1 var(--sans); padding: 8px 11px; border-radius: 4px; border: 1px solid var(--line); background: #fff; color: var(--ink); cursor: pointer; }
+.try-presets button { font: 500 12.5px/1 var(--sans); min-height: 38px; padding: 8px 11px; border-radius: 4px; border: 1px solid var(--line); background: #fff; color: var(--ink); cursor: pointer; }
 .try-presets button:hover { border-color: var(--ink); }
 
 .tag.dev, .tag.web, .tag.oss { color: var(--sub); }
 .sub { margin-top: -10px !important; font: 500 18px/1 var(--sans) !important; color: var(--muted) !important; }
 .readings { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; }
 .readings div { display: grid; gap: 4px; padding: 12px 14px; border-radius: 4px; background: var(--night-2); }
-.readings span { font: 500 10.5px/1 var(--mono); letter-spacing: .08em; text-transform: uppercase; color: var(--on-night-sub); }
+.readings span { font: 500 11px/1 var(--mono); letter-spacing: .08em; text-transform: uppercase; color: var(--on-night-sub); }
 .readings b { font: 500 19px/1 var(--mono); color: var(--on-night); }
 .readings small { grid-column: 1 / -1; font: 500 10.5px/1 var(--mono); letter-spacing: .06em; text-transform: uppercase; color: var(--on-night-sub); }
 .icon.mono { display: grid; place-items: center; background: var(--night-2); color: var(--on-night); font: 500 22px/1 var(--mono); }
@@ -120,6 +120,7 @@ html[data-open="false"] .lang { border-color: var(--line); background: rgba(255,
 .mail { font: 600 clamp(26px, 4.4vw, 56px)/1.05 var(--sans); letter-spacing: -.045em; text-decoration: none; overflow-wrap: anywhere; }
 .mail:hover { text-decoration: underline; text-underline-offset: 8px; text-decoration-thickness: 2px; }
 .links { margin: 0; display: flex; gap: 22px; font: 500 14px/1 var(--mono); }
+.links a { display: inline-block; padding: 14px 0; margin: -14px 0; }
 .foot { padding: 22px var(--gutter) calc(22px + env(safe-area-inset-bottom, 0px)); font: 500 12.5px/1 var(--mono); color: rgba(237, 232, 221, .5); }
 
 /* Kurgu: açılış altyazısı, ara sahne, ertesi sabah */
@@ -127,15 +128,33 @@ html[data-open="false"] .lang { border-color: var(--line); background: rgba(255,
 .origin { font: 500 13.5px/1.45 var(--mono) !important; color: var(--sub) !important; padding-left: 12px; border-left: 2px solid var(--ink); }
 .act { margin: 0; font: 500 12px/1 var(--mono); letter-spacing: .1em; text-transform: uppercase; }
 .interlude { min-height: 100vh; display: grid; align-items: center; padding: 0 var(--gutter); }
-.interlude-text { display: grid; gap: 14px; max-width: min(620px, 100%); color: #FBF7EF; text-shadow: 3px 3px 0 rgba(10, 12, 30, .35); }
+.interlude-text { display: grid; gap: 14px; max-width: min(860px, 100%); color: #FBF7EF; text-shadow: 3px 3px 0 rgba(10, 12, 30, .35); }
 .interlude-text .act { color: rgba(251, 247, 239, .92); }
 .interlude-text h2 { margin: 0; font: 600 clamp(40px, 6vw, 84px)/.98 var(--sans); letter-spacing: -.05em; }
 .interlude-text p:last-child { margin: 0; font-size: clamp(16px, 1.6vw, 20px); line-height: 1.45; color: rgba(251, 247, 239, .94); text-shadow: 2px 2px 0 rgba(10, 12, 30, .45), 0 0 14px rgba(10, 12, 30, .4); }
 .morning .interlude-text p:last-child { color: var(--ink); text-shadow: none; }
 
+/* Gündüz: sadece gökyüzü ve anlar. Açık gökte mürekkep, alacakaranlıkta beyaz. */
+.moment { min-height: 88vh; display: grid; align-items: center; padding: 0 var(--gutter); }
+.moment-text { display: grid; gap: 14px; max-width: min(640px, 100%); }
+/* Yazı hep solda: avatar sağda durur, çakışmasınlar. */
+@media (orientation: landscape) and (max-height: 560px) { .moment-text { max-width: 58vw; } }
+.moment .act { color: var(--ink); opacity: .78; text-shadow: 0 0 12px rgba(246, 242, 234, .9); }
+.moment-line { margin: 0; font: 600 clamp(26px, 3.3vw, 44px)/1.12 var(--sans); letter-spacing: -.035em; color: var(--ink);
+  text-shadow: 0 0 24px rgba(246, 242, 234, .8), 0 0 4px rgba(246, 242, 234, .6); }
+.moment.dusk .act { color: rgba(251, 247, 239, .88); }
+.moment.dusk .moment-line { color: #FBF7EF; text-shadow: 3px 3px 0 rgba(10, 12, 30, .4), 0 0 16px rgba(10, 12, 30, .35); }
+/* Gece kartındaki gönderme: gündüzdeki anına geri götürür. */
+.vig .hour a { color: inherit; text-decoration: none; display: inline-block; padding: 12px 0; margin: -12px 0; }
+.vig .hour a:hover { text-decoration: underline; text-underline-offset: 3px; }
+.oss a { color: var(--ink); }
+/* Üst şeritte uygulamalara kısayol */
+.jump { font: 500 12px/1 var(--mono); letter-spacing: .06em; text-decoration: none; padding: 11px 4px; }
+.jump:hover { text-decoration: underline; text-underline-offset: 4px; }
+
 /* Ertesi sabah: kısa son. Gün bir tur attı. */
 .morning { min-height: 100vh; display: grid; align-items: center; padding: 0 var(--gutter); }
-.again { font: 500 14px/1 var(--mono); color: inherit; text-decoration: none; border-bottom: 1px solid currentColor; padding-bottom: 3px; }
+.again { display: inline-block; font: 500 14px/1 var(--mono); color: inherit; text-decoration: none; border-bottom: 1px solid currentColor; padding: 14px 0 4px; margin-top: -14px; }
 .again:hover { opacity: .8; }
 /* Sabah gökyüzü açık: yazı mürekkep rengi, gölgesiz. */
 .morning .interlude-text { color: var(--ink); text-shadow: 0 0 18px rgba(246, 242, 234, .7); }
@@ -165,7 +184,7 @@ html[data-open="false"] .lang { border-color: var(--line); background: rgba(255,
 .shots .tablet { height: clamp(220px, 24vw, 320px); border-radius: 12px; }
 .shots .card { height: clamp(220px, 22vw, 300px); border-radius: 8px; }
 .foot { display: flex; flex-wrap: wrap; gap: 10px 26px; color: var(--sub) !important; background: var(--paper); border-top: 1px solid var(--line); }
-.foot a { text-decoration: none; color: var(--ink); }
+.foot a { text-decoration: none; color: var(--ink); display: inline-block; padding: 14px 0; margin: -14px 0; }
 .foot a:hover { text-decoration: underline; }
 
 /* Belirme */
@@ -185,6 +204,7 @@ html[data-open="false"] .lang { border-color: var(--line); background: rgba(255,
   .vig figcaption { grid-template-columns: minmax(0, 1fr); }
   .vig .more { grid-column: 1; grid-row: auto; justify-self: start; margin-top: 8px; }
   .contact { min-height: 80vh; align-items: start; padding-top: 14vh; }
+  .moment { min-height: 72vh; }
 }
 @media (max-width: 860px) {
   .detail-body { grid-template-columns: minmax(0, 1fr); }
@@ -192,5 +212,17 @@ html[data-open="false"] .lang { border-color: var(--line); background: rgba(255,
   .interlude { min-height: 70vh; }
 }
 @media (max-width: 420px) { .dawn-line { max-width: 13ch; font-size: 28px; } }
-@media (max-width: 520px) { .hud { display: none; } .lang { margin-left: auto; } }
+@media (max-width: 520px) { .hud { display: none; } .jump { margin-left: auto; } }
 .invite { margin: 0; font-size: clamp(17px, 1.6vw, 20px); color: var(--on-night); }
+/* Kısa telefon ekranı (SE gibi): açılış yazısı sıkışır, "Kaydır" gizlenir. */
+@media (max-height: 640px) and (max-width: 520px) {
+  .opening-caption { gap: 9px; }
+  .opening-caption h1 { font-size: 30px; }
+  .lead { font-size: 14.5px; }
+  .counts li { padding: 6px 8px; font-size: 10.5px; }
+  .scroll-hint { display: none; }
+}
+/* Yatay telefon: pencere solda, isim sağda ve sola hizalı. */
+.opening-stage[data-land="true"] .opening-caption { justify-items: start; text-align: left; padding: 0; }
+.opening-stage[data-land="true"] .counts { justify-content: flex-start; }
+.opening-stage[data-land="true"] .scroll-hint::after { margin-left: 0; }

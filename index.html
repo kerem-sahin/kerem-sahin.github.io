@@ -20,7 +20,7 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600&family=Geist+Mono:wght@400;500&display=swap">
 <script>document.documentElement.classList.replace("no-js", "js");</script>
-<link rel="stylesheet" href="style.css?v=px16">
+<link rel="stylesheet" href="style.css?v=px21">
 </head>
 <body>
 
@@ -29,6 +29,7 @@
 <header class="nav">
   <a href="#opening" class="brand">Kerem Şahin</a>
   <span class="hud" id="hud" aria-hidden="true">06:15 · ŞAFAK</span>
+  <a class="jump" href="#gece" data-tr="Uygulamalar ↓" data-en="Apps ↓">Uygulamalar ↓</a>
   <button id="lang" class="lang" type="button" aria-label="Switch to English">EN</button>
 </header>
 
@@ -50,19 +51,72 @@
       </div>
       <div class="dawn">
         <div class="dawn-copy">
-          <p class="dawn-line" data-tr="Bir gün, sekiz uygulama." data-en="One day, eight apps.">Bir gün, sekiz uygulama.</p>
-          <p class="dawn-sub" data-tr="Her biri, kullanan birinin gününde bir saate denk geliyor." data-en="Each one lands on an hour in the day of someone who uses it.">Her biri, kullanan birinin gününde bir saate denk geliyor.</p>
+          <p class="dawn-line" data-tr="Her uygulama günün bir anından çıktı." data-en="Each app came from a moment in the day.">Her uygulama günün bir anından çıktı.</p>
+          <p class="dawn-sub" data-tr="Önce o anlar. Uygulamalar akşam, lamba yanınca." data-en="First the moments. The apps come in the evening, when the lamp goes on.">Önce o anlar. Uygulamalar akşam, lamba yanınca.</p>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- 07:30 · Sabah: Katman -->
-  <section class="chapter" id="katman" data-mins="450">
+  <!-- Gündüz: sadece gökyüzü ve anlar. Uygulamalar henüz yok; her an kendi saatinde. -->
+  <section class="moment" id="an-katman" data-mins="450">
+    <div class="moment-text rise">
+      <p class="act" data-tr="07:30 · Sabah" data-en="07:30 · Morning">07:30 · Sabah</p>
+      <p class="moment-line" data-tr="Kapıdan çıkmadan aynı soru: bugün ne giysem?" data-en="Before heading out, the same question: what do I wear today?">Kapıdan çıkmadan aynı soru: bugün ne giysem?</p>
+    </div>
+  </section>
+  <section class="moment" id="an-notecook" data-mins="550">
+    <div class="moment-text rise">
+      <p class="act" data-tr="09:10 · Derste" data-en="09:10 · In class">09:10 · Derste</p>
+      <p class="moment-line" data-tr="iPad'de not alıyorum. Not uygulamaları ise hep aynı, sıkıcı." data-en="I take notes on my iPad. Note apps all feel the same, and dull.">iPad'de not alıyorum. Not uygulamaları ise hep aynı, sıkıcı.</p>
+    </div>
+  </section>
+  <section class="moment" id="an-plainday" data-mins="760">
+    <div class="moment-text rise">
+      <p class="act" data-tr="12:40 · Öğle" data-en="12:40 · Midday">12:40 · Öğle</p>
+      <p class="moment-line" data-tr="Telaşın ortasında akla gelen iş, hemen yazılmazsa unutuluyor. Notlar'a yazmak bile zahmetli." data-en="In the rush, a task that isn't written down right away gets forgotten. Even opening Notes feels like a chore.">Telaşın ortasında akla gelen iş, hemen yazılmazsa unutuluyor. Notlar'a yazmak bile zahmetli.</p>
+    </div>
+  </section>
+  <section class="moment" id="an-milyonda" data-mins="900">
+    <div class="moment-text rise">
+      <p class="act" data-tr="15:00 · Ara" data-en="15:00 · A break">15:00 · Ara</p>
+      <p class="moment-line" data-tr="Bir hayat simülasyonu oynuyorum ve neredeyse her seferinde çok uzak bir ülkede doğuyorum. Kendi hayatımıza benzeyenleri görmek istiyorum." data-en="I'm playing a life simulator and almost every time I'm born somewhere far away. I want to see lives closer to ours.">Bir hayat simülasyonu oynuyorum ve neredeyse her seferinde çok uzak bir ülkede doğuyorum. Kendi hayatımıza benzeyenleri görmek istiyorum.</p>
+    </div>
+  </section>
+  <section class="moment" id="an-fiziyoo" data-mins="1020">
+    <div class="moment-text rise">
+      <p class="act" data-tr="17:00 · Klinikte" data-en="17:00 · At the clinic">17:00 · Klinikte</p>
+      <p class="moment-line" data-tr="Babam fizyoterapist, küçüklüğümden beri yanında çalışıyorum." data-en="My dad is a physiotherapist, and I've worked alongside him since I was a kid.">Babam fizyoterapist, küçüklüğümden beri yanında çalışıyorum.</p>
+    </div>
+  </section>
+  <section class="moment" id="an-sweetspot" data-mins="1080">
+    <div class="moment-text rise">
+      <p class="act" data-tr="18:00 · Gün batımı" data-en="18:00 · Sunset">18:00 · Gün batımı</p>
+      <p class="moment-line" data-tr="Şehrin gürültüsünden kaçıp sakin, manzaralı bir yer bulduk. Bir dahaki sefere de bulabilmek için işaretlemek istiyorum." data-en="We got away from the city noise and found a quiet spot with a view. I want to mark it so we can find it again.">Şehrin gürültüsünden kaçıp sakin, manzaralı bir yer bulduk. Bir dahaki sefere de bulabilmek için işaretlemek istiyorum.</p>
+    </div>
+  </section>
+  <section class="moment dusk" id="an-here" data-mins="1190">
+    <div class="moment-text rise">
+      <p class="act" data-tr="19:50 · Kafe" data-en="19:50 · Café">19:50 · Kafe</p>
+      <p class="moment-line" data-tr="Her gün aynı kafedeyiz ama yan masayla hiç konuşmuyoruz." data-en="We're at the same café every day, yet we never talk to the next table.">Her gün aynı kafedeyiz ama yan masayla hiç konuşmuyoruz.</p>
+    </div>
+  </section>
+
+  <!-- 20:25 · Lamba yanar: gündüzün anları masaya gelir, gece uygulamalar çıkar. -->
+  <section class="interlude" id="gece" data-mins="1225">
+    <div class="interlude-text rise">
+      <p class="act" data-tr="20:25 · Akşam" data-en="20:25 · Evening">20:25 · Akşam</p>
+      <h2 data-tr="Gündüz okul, gece uygulamalar." data-en="School by day, apps by night.">Gündüz okul, gece uygulamalar.</h2>
+      <p data-tr="Gün içindeki o anlar akşam masaya geliyor." data-en="The moments from the day come to the desk in the evening.">Gün içindeki o anlar akşam masaya geliyor.</p>
+    </div>
+  </section>
+
+  <!-- Gece: her uygulama, gündüzdeki anının cevabı olarak. -->
+<section class="chapter" id="katman" data-mins="1265">
         <figure class="vig rise" id="d-katman">
       <canvas data-vig="katman" width="128" height="72" aria-hidden="true"></canvas>
       <figcaption>
-        <p class="hour" data-tr="07:30 · Sabah" data-en="07:30 · Morning">07:30 · Sabah</p>
+        <p class="hour"><a href="#an-katman" data-tr="07:30'daki an ↑" data-en="The 07:30 moment ↑">07:30'daki an ↑</a></p>
         <h2>Katman</h2>
         <p class="say" data-tr="Her sabah tek karar: bugün ne giyeceğin." data-en="One decision every morning: what to wear today.">Her sabah tek karar: bugün ne giyeceğin.</p>
         <a class="more" href="https://apps.apple.com/tr/app/katman-bug%C3%BCn-ne-giysem/id6835842857" target="_blank" rel="noopener" data-tr="App Store'dan indir ↗" data-en="Get it on the App Store ↗">App Store'dan indir ↗</a>
@@ -86,12 +140,33 @@
     </figure>
   </section>
 
-  <!-- 12:40 · Öğle: plainday -->
-  <section class="chapter flip" id="plainday" data-mins="760">
+<section class="chapter flip" id="notecook" data-mins="1300">
+        <figure class="vig dark rise" id="d-notecook">
+      <canvas data-vig="notecook" width="128" height="72" aria-hidden="true"></canvas>
+      <figcaption>
+        <p class="hour"><a href="#an-notecook" data-tr="09:10'daki an ↑" data-en="The 09:10 moment ↑">09:10'daki an ↑</a></p>
+        <h2>notecook</h2>
+        <p class="say" data-tr="iPad ve Apple Pencil için el yazısı defteri." data-en="A handwriting notebook for iPad and Apple Pencil.">iPad ve Apple Pencil için el yazısı defteri.</p>
+        <a class="more" href="https://apps.apple.com/tr/app/notecook/id6811676558" target="_blank" rel="noopener" data-tr="App Store'dan indir ↗" data-en="Get it on the App Store ↗">App Store'dan indir ↗</a>
+      </figcaption>
+      <details class="detail-more">
+        <summary><span data-tr="Ayrıntı ve ekranlar" data-en="Details and screens">Ayrıntı ve ekranlar</span></summary>
+        <div class="detail-body">
+          <div class="detail-text">
+          <p class="lede" data-tr="El yazında arama yapabiliyorsun, PDF'lerin üzerine not alabiliyorsun. Defterler iCloud ile tüm cihazlarında." data-en="Your handwriting becomes searchable, you can write on top of PDFs, and your notebooks sync over iCloud.">El yazında arama yapabiliyorsun, PDF'lerin üzerine not alabiliyorsun. Defterler iCloud ile tüm cihazlarında.</p>
+          <p class="stack">SwiftUI · PencilKit · Vision · SwiftData + CloudKit</p>
+          </div>
+          <div class="shots"><img class="tablet" src="assets/shots/notecook-light.jpg" alt="notecook: iPad'de defter" data-alt-tr="notecook: iPad'de defter" data-alt-en="notecook: a notebook on iPad" width="1200" height="780" loading="lazy" decoding="async"></div>
+        </div>
+      </details>
+    </figure>
+  </section>
+
+<section class="chapter" id="plainday" data-mins="1335">
         <figure class="vig rise" id="d-plainday">
       <canvas data-vig="plainday" width="128" height="72" aria-hidden="true"></canvas>
       <figcaption>
-        <p class="hour" data-tr="12:40 · Öğle" data-en="12:40 · Midday">12:40 · Öğle</p>
+        <p class="hour"><a href="#an-plainday" data-tr="12:40'taki an ↑" data-en="The 12:40 moment ↑">12:40'taki an ↑</a></p>
         <h2>plainday</h2>
         <p class="say" data-tr="Düz bir cümle yaz, görev olsun." data-en="Write one plain sentence, get a task.">Düz bir cümle yaz, görev olsun.</p>
         <a class="more" href="https://apps.apple.com/tr/app/plainday/id6823780735" target="_blank" rel="noopener" data-tr="App Store'dan indir ↗" data-en="Get it on the App Store ↗">App Store'dan indir ↗</a>
@@ -112,6 +187,7 @@
       </div>
       </div>
           <p class="stack">SwiftUI · SwiftData · AlarmKit · WidgetKit · App Intents</p>
+          <p class="oss"><span data-tr="Cümle motoru ayrı bir Swift paketi olarak açık kaynak:" data-en="The sentence engine is open source as a separate Swift package:">Cümle motoru ayrı bir Swift paketi olarak açık kaynak:</span> <a href="https://github.com/kerem-sahin/plainparse" target="_blank" rel="noopener">PlainParse ↗</a> <span data-tr="(MIT · 150 test · bağımlılık yok)" data-en="(MIT · 150 tests · no dependencies)">(MIT · 150 test · bağımlılık yok)</span></p>
           </div>
           <div class="shots"><img class="phone" src="assets/shots/plainday-tr-1.jpg" data-src-tr="assets/shots/plainday-tr-1.jpg" data-src-en="assets/shots/plainday-en-1.jpg" alt="plainday: gün listesi" data-alt-tr="plainday: gün listesi" data-alt-en="plainday: the day list" width="560" height="1218" loading="lazy" decoding="async"><img class="phone" src="assets/shots/plainday-tr-2.jpg" data-src-tr="assets/shots/plainday-tr-2.jpg" data-src-en="assets/shots/plainday-en-2.jpg" alt="plainday: cümleden görev" data-alt-tr="plainday: cümleden görev" data-alt-en="plainday: a sentence becomes a task" width="560" height="1218" loading="lazy" decoding="async"><img class="phone" src="assets/shots/plainday-tr-dark.jpg" data-src-tr="assets/shots/plainday-tr-dark.jpg" data-src-en="assets/shots/plainday-en-dark.jpg" alt="plainday: koyu tema" data-alt-tr="plainday: koyu tema" data-alt-en="plainday: dark theme" width="560" height="1218" loading="lazy" decoding="async"></div>
         </div>
@@ -119,91 +195,11 @@
     </figure>
   </section>
 
-  <!-- 18:00 · Gün batımı: SweetSpot -->
-  <section class="chapter" id="sweetspot" data-mins="1080">
-        <figure class="vig rise" id="d-sweetspot">
-      <canvas data-vig="sweetspot" width="128" height="72" aria-hidden="true"></canvas>
-      <figcaption>
-        <p class="hour" data-tr="18:00 · Gün batımı" data-en="18:00 · Sunset">18:00 · Gün batımı</p>
-        <h2>SweetSpot</h2>
-        <p class="say" data-tr="Sakin, az bilinen yerlerin haritası." data-en="A map of quiet, little-known places.">Sakin, az bilinen yerlerin haritası.</p>
-        <a class="more" href="https://apps.apple.com/tr/app/sweetspot-sakl%C4%B1-yerler/id6824031187" target="_blank" rel="noopener" data-tr="App Store'dan indir ↗" data-en="Get it on the App Store ↗">App Store'dan indir ↗</a>
-      </figcaption>
-      <details class="detail-more">
-        <summary><span data-tr="Ayrıntı ve ekranlar" data-en="Details and screens">Ayrıntı ve ekranlar</span></summary>
-        <div class="detail-body">
-          <div class="detail-text">
-          <p class="sub">Saklı Yerler</p>
-          <p class="lede" data-tr="Her yerin fotoğrafı yerinde çekiliyor, yeni paylaşımlar yayına girmeden denetleniyor." data-en="Every place is photographed on the spot, and new posts are moderated before they go live.">Her yerin fotoğrafı yerinde çekiliyor, yeni paylaşımlar yayına girmeden denetleniyor.</p>
-          <p class="stack">SwiftUI · MapKit · Firebase · Cloud Functions</p>
-          </div>
-          <div class="shots"><img class="phone" src="assets/shots/sweetspot-map.jpg" alt="SweetSpot: harita" data-alt-tr="SweetSpot: harita" data-alt-en="SweetSpot: the map" width="560" height="1217" loading="lazy" decoding="async"><img class="phone" src="assets/shots/sweetspot-feed.jpg" alt="SweetSpot: akış" data-alt-tr="SweetSpot: akış" data-alt-en="SweetSpot: the feed" width="560" height="1217" loading="lazy" decoding="async"><img class="phone" src="assets/shots/sweetspot-detail.jpg" alt="SweetSpot: bir yerin sayfası" data-alt-tr="SweetSpot: bir yerin sayfası" data-alt-en="SweetSpot: a place's page" width="560" height="1217" loading="lazy" decoding="async"></div>
-        </div>
-      </details>
-    </figure>
-  </section>
-
-  <!-- 19:50 · Alacakaranlık: here. (going out) -->
-  <section class="chapter flip" id="here" data-mins="1190">
-        <figure class="vig dark rise" id="d-here">
-      <canvas data-vig="here" width="128" height="72" aria-hidden="true"></canvas>
-      <figcaption>
-        <p class="hour" data-tr="19:50 · Alacakaranlık" data-en="19:50 · Dusk">19:50 · Alacakaranlık</p>
-        <h2>here.</h2>
-        <p class="say" data-tr="Aynı mekândaki insanları anında gör ve tanış." data-en="See who's at the same venue right now and meet them.">Aynı mekândaki insanları anında gör ve tanış.</p>
-        <a class="more" href="https://apps.apple.com/tr/app/here/id6767262061" target="_blank" rel="noopener" data-tr="App Store'dan indir ↗" data-en="Get it on the App Store ↗">App Store'dan indir ↗</a>
-      </figcaption>
-      <details class="detail-more">
-        <summary><span data-tr="Ayrıntı ve ekranlar" data-en="Details and screens">Ayrıntı ve ekranlar</span></summary>
-        <div class="detail-body">
-          <div class="detail-text">
-          <p class="lede" data-tr="AVM ve kampüsler için çokgen konum sınırlarıyla çalışıyor. Konya'da gerçek mekânlarda test edildi." data-en="It works with polygon location boundaries for malls and campuses, and it was tested in real venues in Konya.">AVM ve kampüsler için çokgen konum sınırlarıyla çalışıyor. Konya'da gerçek mekânlarda test edildi.</p>
-          <p class="stack">React · Capacitor · Firebase</p>
-          </div>
-          <div class="shots"><img class="phone" src="assets/shots/here-venues.jpg" alt="here.: mekânlar" data-alt-tr="here.: mekânlar" data-alt-en="here.: venues" width="460" height="992" loading="lazy" decoding="async"><img class="phone" src="assets/shots/here-chat.jpg" alt="here.: sohbet" data-alt-tr="here.: sohbet" data-alt-en="here.: chat" width="460" height="992" loading="lazy" decoding="async"></div>
-        </div>
-      </details>
-    </figure>
-  </section>
-
-  <!-- 20:25 · Ara sahne: gündüz biter, lamba yanar, gece başlar -->
-  <section class="interlude" id="gece" data-mins="1225">
-    <div class="interlude-text rise">
-      <p class="act" data-tr="20:25 · Akşam" data-en="20:25 · Evening">20:25 · Akşam</p>
-      <h2 data-tr="Gündüz okul, gece uygulamalar." data-en="School by day, apps by night.">Gündüz okul, gece uygulamalar.</h2>
-      <p data-tr="Hepsini okuldan sonra, akşamları yaptım. Gece masada açık olanlar: ders notları, bir hayat simülasyonu, yapımdaki bir klinik uygulaması ve açık kaynak bir paket." data-en="I made all of them after school, in the evenings. Open on the desk tonight: class notes, a life simulation, a clinic app in progress and an open-source package.">Hepsini okuldan sonra, akşamları yaptım. Gece masada açık olanlar: ders notları, bir hayat simülasyonu, yapımdaki bir klinik uygulaması ve açık kaynak bir paket.</p>
-    </div>
-  </section>
-
-  <!-- 21:00 · Masa lambası: notecook -->
-  <section class="chapter" id="notecook" data-mins="1260">
-        <figure class="vig dark rise" id="d-notecook">
-      <canvas data-vig="notecook" width="128" height="72" aria-hidden="true"></canvas>
-      <figcaption>
-        <p class="hour" data-tr="21:00 · Masa lambası" data-en="21:00 · Desk lamp">21:00 · Masa lambası</p>
-        <h2>notecook</h2>
-        <p class="say" data-tr="iPad ve Apple Pencil için el yazısı defteri." data-en="A handwriting notebook for iPad and Apple Pencil.">iPad ve Apple Pencil için el yazısı defteri.</p>
-        <a class="more" href="https://apps.apple.com/tr/app/notecook/id6811676558" target="_blank" rel="noopener" data-tr="App Store'dan indir ↗" data-en="Get it on the App Store ↗">App Store'dan indir ↗</a>
-      </figcaption>
-      <details class="detail-more">
-        <summary><span data-tr="Ayrıntı ve ekranlar" data-en="Details and screens">Ayrıntı ve ekranlar</span></summary>
-        <div class="detail-body">
-          <div class="detail-text">
-          <p class="lede" data-tr="El yazında arama yapabiliyorsun, PDF'lerin üzerine not alabiliyorsun. Defterler iCloud ile tüm cihazlarında." data-en="Your handwriting becomes searchable, you can write on top of PDFs, and your notebooks sync over iCloud.">El yazında arama yapabiliyorsun, PDF'lerin üzerine not alabiliyorsun. Defterler iCloud ile tüm cihazlarında.</p>
-          <p class="stack">SwiftUI · PencilKit · Vision · SwiftData + CloudKit</p>
-          </div>
-          <div class="shots"><img class="tablet" src="assets/shots/notecook-light.jpg" alt="notecook: iPad'de defter" data-alt-tr="notecook: iPad'de defter" data-alt-en="notecook: a notebook on iPad" width="1200" height="780" loading="lazy" decoding="async"></div>
-        </div>
-      </details>
-    </figure>
-  </section>
-
-  <!-- 22:30 · Gece: 85 Milyonda 1 -->
-  <section class="chapter flip" id="milyonda" data-mins="1350">
+<section class="chapter flip" id="milyonda" data-mins="1370">
         <figure class="vig dark rise" id="d-milyonda">
       <canvas data-vig="milyonda" width="128" height="72" aria-hidden="true"></canvas>
       <figcaption>
-        <p class="hour" data-tr="22:30 · Gece" data-en="22:30 · Night">22:30 · Gece</p>
+        <p class="hour"><a href="#an-milyonda" data-tr="15:00'teki an ↑" data-en="The 15:00 moment ↑">15:00'teki an ↑</a></p>
         <h2>85 Milyonda 1</h2>
         <p class="say" data-tr="Türkiye'nin gerçek istatistiklerine dayanan bir hayat simülasyonu." data-en="A life simulation built on Turkey's real statistics.">Türkiye'nin gerçek istatistiklerine dayanan bir hayat simülasyonu.</p>
         <a class="more" href="https://85milyondabir.com.tr" target="_blank" rel="noopener" data-tr="Bir hayat yaşa ↗" data-en="Live a life ↗">Bir hayat yaşa ↗</a>
@@ -221,12 +217,11 @@
     </figure>
   </section>
 
-  <!-- 23:40 · Gece mesaisi: Fiziyoo (still being built) -->
-  <section class="chapter" id="fiziyoo" data-mins="1420">
+<section class="chapter" id="fiziyoo" data-mins="1405">
         <figure class="vig dark rise" id="d-fiziyoo">
       <canvas data-vig="fiziyoo" width="128" height="72" aria-hidden="true"></canvas>
       <figcaption>
-        <p class="hour" data-tr="23:40 · Gece mesaisi" data-en="23:40 · Working late">23:40 · Gece mesaisi</p>
+        <p class="hour"><a href="#an-fiziyoo" data-tr="17:00'deki an ↑" data-en="The 17:00 moment ↑">17:00'deki an ↑</a></p>
         <h2>Fiziyoo</h2>
         <p class="say" data-tr="Fizyoterapistler için klinik uygulaması." data-en="A clinic app for physiotherapists.">Fizyoterapistler için klinik uygulaması.</p>
         <span class="more static" data-tr="Yapım aşamasında" data-en="In development">Yapım aşamasında</span>
@@ -249,28 +244,46 @@
     </figure>
   </section>
 
-  <!-- 00:45 · Gece yarısı: PlainParse -->
-  <section class="chapter flip" id="plainparse" data-mins="1485">
-        <figure class="vig dark rise" id="d-plainparse">
-      <canvas data-vig="plainparse" width="128" height="72" aria-hidden="true"></canvas>
+<section class="chapter flip" id="sweetspot" data-mins="1440">
+        <figure class="vig rise" id="d-sweetspot">
+      <canvas data-vig="sweetspot" width="128" height="72" aria-hidden="true"></canvas>
       <figcaption>
-        <p class="hour" data-tr="00:45 · Gece yarısı" data-en="00:45 · After midnight">00:45 · Gece yarısı</p>
-        <h2>PlainParse</h2>
-        <p class="say" data-tr="Tek bir düz cümleyi göreve çeviren Swift paketi." data-en="A Swift package that turns one plain sentence into a task.">Tek bir düz cümleyi göreve çeviren Swift paketi.</p>
-        <a class="more" href="https://github.com/kerem-sahin/plainparse" target="_blank" rel="noopener" data-tr="GitHub'da kod ↗" data-en="Code on GitHub ↗">GitHub'da kod ↗</a>
+        <p class="hour"><a href="#an-sweetspot" data-tr="18:00'deki an ↑" data-en="The 18:00 moment ↑">18:00'deki an ↑</a></p>
+        <h2>SweetSpot</h2>
+        <p class="say" data-tr="Sakin, az bilinen yerlerin haritası." data-en="A map of quiet, little-known places.">Sakin, az bilinen yerlerin haritası.</p>
+        <a class="more" href="https://apps.apple.com/tr/app/sweetspot-sakl%C4%B1-yerler/id6824031187" target="_blank" rel="noopener" data-tr="App Store'dan indir ↗" data-en="Get it on the App Store ↗">App Store'dan indir ↗</a>
       </figcaption>
       <details class="detail-more">
-        <summary><span data-tr="Ayrıntı" data-en="Details">Ayrıntı</span></summary>
+        <summary><span data-tr="Ayrıntı ve ekranlar" data-en="Details and screens">Ayrıntı ve ekranlar</span></summary>
         <div class="detail-body">
           <div class="detail-text">
-          <p class="lede" data-tr="plainday'in hızlı ekleme çubuğu bununla çalışıyor. Bağımlılık yok, internet yok, 150 test." data-en="It runs plainday's quick-add bar. No dependencies, no network, 150 tests.">plainday'in hızlı ekleme çubuğu bununla çalışıyor. Bağımlılık yok, internet yok, 150 test.</p>
-          <pre class="code"><span class="k">let</span> entry = parser.parse(<span class="s">"Cuma fizyoloji ödevi 18:00"</span>)
-
-entry.title    <span class="c">// "Fizyoloji ödevi"</span>
-entry.day      <span class="c">// next Friday</span>
-entry.minute   <span class="c">// 1080, i.e. 18:00</span></pre>
+          <p class="sub">Saklı Yerler</p>
+          <p class="lede" data-tr="Her yerin fotoğrafı yerinde çekiliyor, yeni paylaşımlar yayına girmeden denetleniyor." data-en="Every place is photographed on the spot, and new posts are moderated before they go live.">Her yerin fotoğrafı yerinde çekiliyor, yeni paylaşımlar yayına girmeden denetleniyor.</p>
+          <p class="stack">SwiftUI · MapKit · Firebase · Cloud Functions</p>
           </div>
-          
+          <div class="shots"><img class="phone" src="assets/shots/sweetspot-map.jpg" alt="SweetSpot: harita" data-alt-tr="SweetSpot: harita" data-alt-en="SweetSpot: the map" width="560" height="1217" loading="lazy" decoding="async"><img class="phone" src="assets/shots/sweetspot-feed.jpg" alt="SweetSpot: akış" data-alt-tr="SweetSpot: akış" data-alt-en="SweetSpot: the feed" width="560" height="1217" loading="lazy" decoding="async"><img class="phone" src="assets/shots/sweetspot-detail.jpg" alt="SweetSpot: bir yerin sayfası" data-alt-tr="SweetSpot: bir yerin sayfası" data-alt-en="SweetSpot: a place's page" width="560" height="1217" loading="lazy" decoding="async"></div>
+        </div>
+      </details>
+    </figure>
+  </section>
+
+<section class="chapter" id="here" data-mins="1475">
+        <figure class="vig dark rise" id="d-here">
+      <canvas data-vig="here" width="128" height="72" aria-hidden="true"></canvas>
+      <figcaption>
+        <p class="hour"><a href="#an-here" data-tr="19:50'deki an ↑" data-en="The 19:50 moment ↑">19:50'deki an ↑</a></p>
+        <h2>here.</h2>
+        <p class="say" data-tr="Aynı mekândaki insanları anında gör ve tanış." data-en="See who's at the same venue right now and meet them.">Aynı mekândaki insanları anında gör ve tanış.</p>
+        <a class="more" href="https://apps.apple.com/tr/app/here/id6767262061" target="_blank" rel="noopener" data-tr="App Store'dan indir ↗" data-en="Get it on the App Store ↗">App Store'dan indir ↗</a>
+      </figcaption>
+      <details class="detail-more">
+        <summary><span data-tr="Ayrıntı ve ekranlar" data-en="Details and screens">Ayrıntı ve ekranlar</span></summary>
+        <div class="detail-body">
+          <div class="detail-text">
+          <p class="lede" data-tr="AVM ve kampüsler için çokgen konum sınırlarıyla çalışıyor. Konya'da gerçek mekânlarda test edildi." data-en="It works with polygon location boundaries for malls and campuses, and it was tested in real venues in Konya.">AVM ve kampüsler için çokgen konum sınırlarıyla çalışıyor. Konya'da gerçek mekânlarda test edildi.</p>
+          <p class="stack">React · Capacitor · Firebase</p>
+          </div>
+          <div class="shots"><img class="phone" src="assets/shots/here-venues.jpg" alt="here.: mekânlar" data-alt-tr="here.: mekânlar" data-alt-en="here.: venues" width="460" height="992" loading="lazy" decoding="async"><img class="phone" src="assets/shots/here-chat.jpg" alt="here.: sohbet" data-alt-tr="here.: sohbet" data-alt-en="here.: chat" width="460" height="992" loading="lazy" decoding="async"></div>
         </div>
       </details>
     </figure>
@@ -300,8 +313,8 @@ entry.minute   <span class="c">// 1080, i.e. 18:00</span></pre>
 
 <footer class="foot"><span>© 2026 Kerem Şahin</span><a href="mailto:subatcontact@gmail.com">subatcontact@gmail.com</a></footer>
 
-<script src="pixel.js?v=px16"></script>
-<script src="sky.js?v=px16"></script>
-<script src="page.js?v=px16"></script>
+<script src="pixel.js?v=px21"></script>
+<script src="sky.js?v=px21"></script>
+<script src="page.js?v=px21"></script>
 </body>
 </html>

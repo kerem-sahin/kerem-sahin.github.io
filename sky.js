@@ -62,9 +62,8 @@
     const openH = h * (mobile ? 0.72 : 0.68);
     const winBottomY = h - win.bottom, winH = h - win.top - win.bottom, winCX = win.left + (w - win.left - win.right) / 2;
     const horizonY = lerp(winBottomY - winH * 0.24, openH, openAmt);
-    // Avatar: açılışta pencerenin içinde; gün başlayınca damalı geçişle kaybolur.
-    // Gün bitip lamba yanınca (ara sahne) bir an görünür, gece yarısından sonra lambanın altında kalır ve ertesi sabahı bekler.
-    const vis = Math.max(1 - smooth(418, 446, m), smooth(1205, 1220, m) * (1 - smooth(1236, 1252, m)), smooth(1495, 1525, m));
+    // Gündüz boyunca sahnede (anlar onun günü); gece uygulamalar çıkınca çekilir, gece yarısı lambanın altına döner.
+    const vis = Math.max(1 - smooth(1236, 1252, m), smooth(1495, 1525, m));
     const ax = lerp(winCX + (w - win.left - win.right) * (mobile ? 0.18 : 0.22), w * (mobile ? 0.7 : 0.8), openAmt);
     const feet = lerp(winBottomY - winH * 0.05, h * (mobile ? 0.95 : 0.93), openAmt);
     const AV = PX.AV, avCol = ax / P;
@@ -93,12 +92,32 @@
   const openStage = openingEl ? openingEl.querySelector(".opening-stage") : null;
   let win = { top: 0, right: 0, bottom: 0, left: 0 };
   let openAmt = openingEl ? 0 : 1, travel = 1, lastOpenKey = "";
+  const capEl = openStage ? openStage.querySelector(".opening-caption") : null;
+  let capH = 230, land = false;
+  const availTopPx = 64;
   function measureWindow() {
-    const w = Math.min(390, vw * 0.78);
-    const availTop = 70, availBottom = vw < 760 ? 250 : 230;
-    const h = Math.max(200, Math.min(440, vh * 0.5, vh - availTop - availBottom));
-    const cy = availTop + (vh - availTop - availBottom) / 2;
-    win = { top: cy - h / 2, bottom: vh - (cy + h / 2), left: (vw - w) / 2, right: (vw - w) / 2 };
+    // Pencerenin altı, ismin ve sayaçların sığacağı kadar boş kalır (küçük telefonlarda taşmasın).
+    const availTop = 72, st = openStage ? openStage.style : null;
+    // Yatay telefon: ekran basık; pencere solda, yazı sağda.
+    land = vw >= vh * 1.3 && vh < 560;
+    if (openStage) openStage.dataset.land = String(land);
+    let w, h, top, left;
+    if (land) {
+      const gut = Math.max(20, vw * 0.05);
+      h = vh - availTop - 20; w = Math.min(vw * 0.46, h * 1.15); top = availTop; left = gut;
+      if (st) { st.setProperty("--cap-l", (left + w + 28).toFixed(0) + "px"); st.setProperty("--cap-r", gut.toFixed(0) + "px"); }
+      capH = capEl ? capEl.offsetHeight : capH;
+    } else {
+      if (st) { st.removeProperty("--cap-l"); st.removeProperty("--cap-r"); }
+      capH = capEl ? capEl.offsetHeight : capH;
+      const big = vh > 1000 && vw >= 760; // büyük iPad: pencere ekrana oranla küçük kalmasın
+      const availBottom = capH + 22 + 18;
+      w = Math.min(big ? 520 : 390, vw * 0.78);
+      h = Math.max(170, Math.min(big ? 600 : 440, vh * 0.5, vh - availTop - availBottom));
+      const cy = availTop + (vh - availTop - availBottom) / 2;
+      top = cy - h / 2; left = (vw - w) / 2;
+    }
+    win = { top, bottom: vh - top - h, left, right: vw - left - w };
     if (openingEl) travel = Math.max(1, openingEl.offsetHeight - window.innerHeight);
     lastOpenKey = "";
   }
@@ -127,7 +146,7 @@
       st.setProperty("--win-r", rad.toFixed(1) + "px");
       st.setProperty("--frame", Math.max(0, 1 - open * 1.5).toFixed(3));
       st.setProperty("--caption", (1 - smooth(0.0, 0.1, p)).toFixed(3));
-      st.setProperty("--caption-top", (win.top + (vh - win.top - win.bottom) + 22).toFixed(1) + "px");
+      st.setProperty("--caption-top", (land ? Math.max(availTopPx, (vh - capH) / 2) : win.top + (vh - win.top - win.bottom) + 22).toFixed(1) + "px");
       st.setProperty("--dawn", (smooth(0.62, 0.86, p) * (1 - smooth(0, vh * 0.3, after))).toFixed(3));
       st.setProperty("--dawn-y", after.toFixed(1) + "px");
     }
@@ -162,7 +181,9 @@
 
   window.addEventListener("scroll", () => { targetMins = minsAtScroll(window.scrollY); wake(); }, { passive: true });
   window.addEventListener("resize", () => { resize(); wake(); }, { passive: true });
-  window.addEventListener("load", () => { measureAnchors(); targetMins = minsAtScroll(window.scrollY); wake(); });
+  window.addEventListener("load", () => { measureWindow(); measureAnchors(); targetMins = minsAtScroll(window.scrollY); wake(); });
+  // Yazı tipi gelince açılış yazısının yüksekliği değişir: pencereyi yeniden ölç.
+  if (document.fonts && document.fonts.ready) document.fonts.ready.then(() => { measureWindow(); wake(200); });
   window.addEventListener("ks:langchange", () => { lastHud = ""; wake(200); });
   document.addEventListener("visibilitychange", () => { if (!document.hidden) wake(); });
   if ("ResizeObserver" in window) {
@@ -184,9 +205,14 @@
   function sizeVigs() {
     for (const v of vigs) {
       const pe = v.c.parentElement, cs = getComputedStyle(pe);
+      pe.style.maxWidth = ""; // önce tam genişliği ölç
       const box = pe.clientWidth - parseFloat(cs.paddingLeft) - parseFloat(cs.paddingRight); // çerçevenin iç genişliği
       // Büyük ekranda tam sayı ölçek (pikseller eşit); dar ekranda genişliği doldur.
-      const s = box >= 512 ? Math.floor(Math.min(box, 680) / PX.VW) : Math.max(1, box / PX.VW);
+      // Yatay telefonda çizim ve altyazısı ekran yüksekliğine de sığsın.
+      const byH = Math.max(1, (window.innerHeight - 200) / PX.VH), byW = box >= 512 ? Math.min(box, 680) / PX.VW : box / PX.VW;
+      const s = box >= 512 ? Math.max(1, Math.floor(Math.min(byW, byH))) : Math.max(1, Math.min(byW, byH));
+      // Yükseklik sınırladıysa kâğıt çerçeve de çizime göre daralsın (ortada boş kâğıt kalmasın).
+      pe.style.maxWidth = byH < byW ? Math.round(PX.VW * s + parseFloat(cs.paddingLeft) + parseFloat(cs.paddingRight)) + "px" : "";
       v.c.style.width = PX.VW * s + "px"; v.c.style.height = PX.VH * s + "px";
     }
   }

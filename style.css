@@ -137,7 +137,7 @@ html[data-open="false"] .lang { border-color: var(--line); background: rgba(255,
 .morning { padding: 30vh var(--gutter) 10vh; }
 /* Ertesi sabah: her uygulama kendi kâğıdında; aralarından sabah görünür. */
 .sheet { max-width: 1180px; margin: 0 auto; display: grid; gap: clamp(16px, 2.2vw, 26px); }
-.sheet-head, .detail { background: var(--paper); border-radius: 6px; box-shadow: var(--shadow); padding: clamp(22px, 3.4vw, 44px); }
+.sheet-head, .detail { --pad: clamp(22px, 3.4vw, 44px); background: var(--paper); border-radius: 6px; box-shadow: var(--shadow); padding: var(--pad); }
 .sheet-head { margin-bottom: clamp(4px, 1vw, 12px); }
 .sheet-head { display: grid; gap: 12px; }
 .sheet-head > * { max-width: 52ch; }
@@ -145,15 +145,24 @@ html[data-open="false"] .lang { border-color: var(--line); background: rgba(255,
 .sheet-head h2 { margin: 0; font: 600 clamp(40px, 5.4vw, 72px)/.95 var(--sans); letter-spacing: -.05em; }
 .sheet-head p:last-child { margin: 0; color: var(--sub); }
 /* Her uygulama kısa bir satır; ayrıntı ve ekranlar dokununca açılır (telefonda sayfa kısa kalsın). */
-.detail { scroll-margin-top: 80px; }
-.detail-head { display: grid; grid-template-columns: minmax(0, 280px) minmax(0, 1fr) auto; grid-template-areas: "hour hour hour" "id say cta"; align-items: center; gap: 10px 28px; }
-.detail-head .hour { grid-area: hour; margin: 0; }
-.detail-head .id { grid-area: id; gap: 14px; }
+/* Her kart: o günün çizimi köşeye iliştirilmiş bir polaroid, yanında sabah yazılmış not. */
+.detail { scroll-margin-top: 80px; display: grid; grid-template-columns: 272px minmax(0, 1fr); column-gap: clamp(24px, 3.4vw, 48px); align-items: start; }
+.pin { margin: 0; grid-column: 1; grid-row: 1; padding: 8px; background: #FBF8F2; border-radius: 4px; width: 272px; margin: calc(-1 * var(--pad) - 12px) 0 0 calc(-1 * var(--pad) - 10px);
+  box-shadow: 0 0 0 1px var(--line), 5px 5px 0 rgba(12, 14, 26, .2); }
+.pin canvas { display: block; image-rendering: pixelated; image-rendering: crisp-edges; border-radius: 2px; }
+.pin.dark { background: var(--night); box-shadow: 0 0 0 1px rgba(237, 232, 221, .14), 5px 5px 0 rgba(12, 14, 26, .3); }
+.detail > .detail-head { grid-column: 2; grid-row: 1; }
+.detail > .detail-more { grid-column: 2; margin-top: 18px; }
+.detail .detail-body { grid-template-columns: minmax(0, 1fr); }
+.detail-head { display: grid; justify-items: start; gap: 10px; max-width: 60ch; }
+.detail-head .hour { margin: 0; }
+.detail-head .id { gap: 14px; }
 .detail-head .icon { width: 48px; height: 48px; border-radius: 11px; }
 .detail-head h2 { margin: 0 0 4px; font-size: clamp(28px, 2.6vw, 34px); }
-.detail-head .sub { grid-column: 1; margin: 0 !important; font-size: 15px !important; }
-.detail-head .say { grid-area: say; margin: 0; font-size: clamp(16px, 1.4vw, 18px); }
-.detail-head .cta { grid-area: cta; }
+.detail-head .sub { margin: 0 !important; font-size: 15px !important; }
+.detail-head .say { margin: 6px 0 0; font: 600 clamp(20px, 1.9vw, 24px)/1.25 var(--sans); letter-spacing: -.025em; color: var(--ink); }
+.detail-head .lede { margin: 0; color: var(--sub); }
+.detail-head .cta { margin-top: 6px; }
 .detail-more { margin-top: 14px; }
 .detail-more summary { list-style: none; cursor: pointer; display: inline-flex; align-items: center; gap: 10px; font: 500 12.5px/1 var(--mono); color: var(--ink); padding: 10px 12px; border: 1px solid var(--line); border-radius: 4px; }
 .detail-more summary::-webkit-details-marker { display: none; }
@@ -189,17 +198,13 @@ html[data-open="false"] .lang { border-color: var(--line); background: rgba(255,
   .chapter, .chapter.flip { grid-template-columns: minmax(0, 1fr); min-height: 0; padding-top: 44px; padding-bottom: 44px; }
   .opening { height: 190vh; }
   .morning { padding-top: 16vh; padding-bottom: 6vh; }
-  .sheet-head, .detail { padding: 22px 18px; }
+  .sheet-head, .detail { --pad: 20px; padding: 22px 18px; }
   .chapter .vig, .chapter.flip .vig { grid-column: auto; justify-self: stretch; width: 100%; margin: 0; }
   .vig figcaption { grid-template-columns: minmax(0, 1fr); }
   .vig .more { grid-column: 1; grid-row: auto; justify-self: start; margin-top: 8px; }
   .contact { min-height: 80vh; align-items: start; padding-top: 14vh; }
 }
 @media (max-width: 860px) {
-  .detail-head { grid-template-columns: minmax(0, 1fr); grid-template-areas: "hour" "id" "say" "cta"; gap: 10px; }
-  .detail-head .cta { justify-self: start; }
-  .detail-head:has(.sub) { grid-template-areas: "hour" "id" "sub" "say" "cta"; }
-  .detail-head .sub { grid-area: sub; }
   .detail-body { grid-template-columns: minmax(0, 1fr); }
   .shots { margin-right: -18px; }
   .interlude { min-height: 70vh; }
@@ -207,3 +212,10 @@ html[data-open="false"] .lang { border-color: var(--line); background: rgba(255,
 @media (max-width: 420px) { .dawn-line { max-width: 13ch; font-size: 28px; } }
 @media (max-width: 520px) { .hud { display: none; } .lang { margin-left: auto; } }
 .invite { margin: 0; font-size: clamp(17px, 1.6vw, 20px); color: var(--on-night); }
+/* Dar ekran: çizim üstte, yazı altında. 640px üstünde yan yana kalır. */
+@media (max-width: 640px) {
+  .detail { grid-template-columns: minmax(0, 1fr); }
+  .detail > .detail-head { grid-column: 1; grid-row: 2; margin-top: 16px; }
+  .detail > .detail-more { grid-column: 1; }
+  .pin { width: min(100%, 232px); padding: 6px; margin: calc(-1 * var(--pad) - 12px) 0 0 -6px; }
+}

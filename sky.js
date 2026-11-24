@@ -195,7 +195,8 @@
   })).filter((v) => v.fn);
   function sizeVigs() {
     for (const v of vigs) {
-      const box = v.c.parentElement.clientWidth - 20; // çerçevenin iç genişliği
+      const pe = v.c.parentElement, cs = getComputedStyle(pe);
+      const box = pe.clientWidth - parseFloat(cs.paddingLeft) - parseFloat(cs.paddingRight); // çerçevenin iç genişliği
       // Büyük ekranda tam sayı ölçek (pikseller eşit); dar ekranda genişliği doldur.
       const s = box >= 512 ? Math.floor(Math.min(box, 680) / PX.VW) : Math.max(1, box / PX.VW);
       v.c.style.width = PX.VW * s + "px"; v.c.style.height = PX.VH * s + "px";

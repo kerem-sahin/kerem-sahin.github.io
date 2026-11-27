@@ -98,6 +98,7 @@ function aimLetter(el) {
   const at = +el.dataset.at || 0, mode = el.dataset.mode || "mid";
   const tn = el.firstElementChild.firstChild, ch = tn.data[at];
   const fs = parseFloat(el.style.fontSize);
+  if (!(fs > 0)) return null;                      // görünmeyen sekmede ölçü yok; sonra yeniden denenir
   const rng = document.createRange(); rng.setStart(tn, at); rng.setEnd(tn, at + 1);
   const lr = rng.getBoundingClientRect(), er = el.getBoundingClientRect();
 
@@ -152,11 +153,13 @@ function measure() {
     d.ox = zr.left - sr.left; d.oy = zr.top - sr.top;
     if (d.cover) {
       const star = [...d.z.querySelectorAll(".aim")].find(s => s.getBoundingClientRect().width > 0);
+      if (!star) { d.smax = 0; return; }
       const r = star.getBoundingClientRect();
       d.tx = r.left + r.width / 2 - zr.left; d.ty = r.top + r.height / 2 - zr.top;
       d.smax = 1.15 * Math.hypot(d.w, d.h) / (0.456 * r.width);   // yıldızın iç çemberi ekranı kaplasın
     } else {
       const t = aimLetter(d.z);
+      if (!t) { d.smax = 0; return; }
       d.tx = t.tx; d.ty = t.ty;
       d.smax = 1.3 * Math.max(d.w / t.span, d.h / t.tall);
     }
@@ -166,7 +169,7 @@ function measure() {
 const fades = document.querySelectorAll(".cover-dive .fade-out");
 const avatar = document.querySelector(".cover-dive .cover-avatar");
 function frame() {
-  if (!dives[0].smax) return;
+  if (dives.some(d => !d.smax)) { if (innerWidth > 0) layoutSoon(); return; }
   const vh = innerHeight;
   dives.forEach(d => {
     const p = sectionProgress(d.sec);
@@ -190,7 +193,9 @@ function frame() {
 revealOnView(".reveal, .rep, .p-title, .p-art, .contact-reveal");
 scrollStretch(".p-title > span");
 
-function layout() { fitAll(); measure(); frame(); }
+function layout() { fitAll(); measure(); if (dives.every(d => d.smax)) frame(); }
+let pending = false;
+function layoutSoon() { if (pending) return; pending = true; setTimeout(() => { pending = false; layout(); }, 200); }
 let rz;
 addEventListener("resize", () => { clearTimeout(rz); rz = setTimeout(() => { layout(); document.querySelectorAll("button.ht").forEach(b => drawHT(b).catch(() => {})); }, 150); });
 document.fonts.ready.then(() => {

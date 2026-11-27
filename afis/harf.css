@@ -1,0 +1,29 @@
+/* Deneme 1: harfin içinden geç */
+.dive { position: relative; height: 260vh; }
+.dive > .stage { position: sticky; top: 0; height: 100svh; min-height: 0; overflow: hidden; }
+.zoom { position: relative; z-index: 3; transform-origin: 0 0; }
+.fill { position: absolute; inset: 0; z-index: 20; background: var(--to); opacity: 0; pointer-events: none; }
+.scroll-cue { font: 500 12px/1 var(--mono); letter-spacing: .08em; text-transform: uppercase; color: var(--yellow); }
+
+/* Kapı: sıradaki uygulamanın adı, bir sonraki afişin renginde */
+.door { height: 240vh; background: var(--from); }
+.door > .stage { display: grid; place-items: center; padding: 0 var(--pad); background: var(--from); }
+.door-text { color: var(--to); width: 100%; position: relative; z-index: 3; }
+.door-label {
+  position: absolute; left: var(--pad); right: var(--pad); top: calc(var(--pad) + 40px); z-index: 4;
+  display: flex; justify-content: space-between; color: var(--to);
+  font: 500 12px/1 var(--mono); letter-spacing: .1em; text-transform: uppercase;
+}
+
+.poster + .door { margin-top: 0; }
+
+.finale { background: var(--ink); color: var(--cream); padding: calc(var(--pad) + 60px) var(--pad) var(--pad); min-height: 100svh; display: flex; flex-direction: column; gap: clamp(18px, 3vw, 30px); }
+.finale .mail { font-size: clamp(40px, 9vw, 150px); }
+.how-note { margin-top: auto; max-width: 46ch; padding-top: 6vh; }
+.how-note p:last-child { font: 300 clamp(17px, 1.5vw, 21px)/1.4 var(--sans); opacity: .85; }
+
+/* Kapakta yükselme animasyonu yok: yıldızın yeri ölçülebilsin */
+.cover-dive .cover-name .line > span { transform: scaleX(var(--sx, 1)) !important; transition: none !important; }
+@media (orientation: portrait) {
+  .zoom .cover-star { top: -4vw; right: -2vw; }
+}

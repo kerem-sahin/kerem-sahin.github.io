@@ -3,6 +3,14 @@
    Kaydırdıkça kamera o adın bir harfine (ya da bir noktaya) dalar; ekran o renge boyanır,
    yeni afiş o renkte açılır. Her kapıda başka bir harf seçilir. */
 
+/* Sayfa yenilenince her zaman kapaktan başlasın (tarayıcı eski kaydırma yerini hatırlamasın). */
+if ("scrollRestoration" in history) history.scrollRestoration = "manual";
+if (location.hash) history.replaceState(null, "", location.pathname + location.search);
+const toTop = () => window.scrollTo({ top: 0, left: 0, behavior: "instant" });
+toTop();
+addEventListener("load", toTop);
+addEventListener("pageshow", e => { if (e.persisted) toTop(); });
+
 const C = { yellow: "#FFE600", blue: "#2341B5", cream: "#F1E4C6", ink: "#111114", red: "#D8323C", electric: "#1F33D6", paper: "#E9E7DF" };
 
 // at: dalınacak karakterin sırası · mode: mid (gövde ortası), low (gövdenin altı), top (en üst parça: İ'nin noktası, ünlemin çubuğu), bottom (en alt parça: nokta)

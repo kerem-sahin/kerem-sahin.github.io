@@ -7,13 +7,13 @@ const C = { yellow: "#FFE600", blue: "#2341B5", cream: "#F1E4C6", ink: "#111114"
 
 // at: dalınacak karakterin sırası · mode: mid (gövde ortası), low (gövdenin altı), top (en üst parça: İ'nin noktası, ünlemin çubuğu), bottom (en alt parça: nokta)
 const CHAIN = [
-  { app: "katman",    theme: "t-yellow",   bg: C.yellow },
-  { app: "notecook",  theme: "t-blue",     bg: C.blue,     at: 2, mode: "mid" },    // NO[T]ECOOK
-  { app: "plainday",  theme: "t-cream",    bg: C.cream,    at: 7, mode: "low" },    // PLAINDA[Y]
-  { app: "milyonda",  theme: "t-ink",      bg: C.ink,      at: 4, mode: "top" },    // 85 M[İ]'nin noktası
-  { app: "fiziyoo",   theme: "t-red",      bg: C.red,      at: 2, mode: "mid" },    // Fİ[Z]İYOO
+  { app: "katman",    theme: "t-yellow",   bg: C.yellow },                          // kapaktaki sarı yıldızdan
+  { app: "plainday",  theme: "t-red",      bg: C.red,      at: 3, mode: "mid" },    // PLA[I]NDAY
   { app: "sweetspot", theme: "t-electric", bg: C.electric, at: 6, mode: "low" },    // SWEETS[P]OT
   { app: "here",      theme: "t-paper",    bg: C.paper,    at: 4, mode: "bottom" }, // HERE[.]
+  { app: "notecook",  theme: "t-blue",     bg: C.blue,     at: 2, mode: "mid" },    // NO[T]ECOOK
+  { app: "milyonda",  theme: "t-cream",    bg: C.cream,    at: 4, mode: "top" },    // 85 M[İ]'nin noktası
+  { app: "fiziyoo",   theme: "t-red",      bg: C.red,      at: 2, mode: "mid" },    // Fİ[Z]İYOO
   { door: "BANA YAZ!", bg: C.ink,                          at: 8, mode: "top" }     // ünlemin çubuğu
 ];
 

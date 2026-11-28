@@ -31,7 +31,7 @@ const APPS = {
     say: "Türkiye'nin gerçek istatistiklerine dayanan bir hayat simülasyonu.",
     stack: "Next.js · TypeScript · TÜİK verisi",
     link: ["Bir hayat yaşa ↗", "https://85milyondabir.com.tr"],
-    rep: ["yeniden", "doğ"], shots: ["85-card-1.jpg", "85-card-2.jpg"], invert: true
+    rep: ["yeniden", "doğ"], shots: ["85-card-1.jpg", "85-card-2.jpg"]
   },
   fiziyoo: {
     name: "FİZİYOO", plat: "iOS", status: "YAPIMDA",
